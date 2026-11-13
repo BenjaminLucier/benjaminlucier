@@ -1,0 +1,14 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "benjaminlucier-com",
+	"compatibility_date": "2026-10-01",
+	// Static assets only: every page is prerendered into dist/client, so there is no
+	// Worker script. Cloudflare serves the files directly and 404.html for misses.
+	"assets": { "directory": "./dist/client", "not_found_handling": "404-page" },
+	// www exists only so its DNS record and certificate get provisioned; a zone
+	// Redirect Rule (www → root, 301) runs before any request reaches the assets.
+	"routes": [
+		{ "pattern": "benjaminlucier.com", "custom_domain": true },
+		{ "pattern": "www.benjaminlucier.com", "custom_domain": true }
+	]
+}

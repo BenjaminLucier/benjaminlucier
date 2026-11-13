@@ -1,0 +1,51 @@
+{
+	"name": "benjaminlucier",
+	"version": "1.0.0",
+	"dependencies": {
+		"@solidjs/meta": "1.0.0-next.2",
+		"@solidjs/router": "2.0.0-next.34",
+		"@solidjs/web": "2.0.0-rc.13",
+		"d3-force": "^3.0.0",
+		"filesystem-routing": "^0.4.0",
+		"lucide": "^1.52.0",
+		"simple-icons": "^16.34.0",
+		"solid-js": "2.0.0-rc.13"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.5.15",
+		"@solidjs/prerender": "^0.2.0",
+		"@solidjs/vite-plugin": "3.0.0-next.47",
+		"@tailwindcss/vite": "^4.3.3",
+		"@types/d3-force": "^3.0.10",
+		"@types/node": "^26.6.4",
+		"playwright": "^1.64.0",
+		"prerender-crawler": "^0.2.0",
+		"schema-dts": "^2.1.0",
+		"tailwindcss": "^4.3.3",
+		"typescript": "^7.0.2",
+		"vite": "^8.3.3",
+		"wrangler": "^4.148.0"
+	},
+	"scripts": {
+		"deploy": "wrangler deploy",
+		"dev": "vite",
+		"build": "node scripts/discovery.ts && vite build",
+		"discovery": "node scripts/discovery.ts",
+		"preview": "vite preview",
+		"check": "biome check .",
+		"fix": "biome check --write .",
+		"typecheck": "tsc",
+		"thumbnails": "node scripts/thumbnails.ts",
+		"check:thumbnails": "node scripts/check-thumbnails.ts",
+		"check:meta": "node scripts/check-meta.ts"
+	},
+	"type": "module",
+	"packageManager": "pnpm@12.10.1",
+	"devEngines": {
+		"packageManager": {
+			"name": "pnpm",
+			"version": "12.10.1",
+			"onFail": "download"
+		}
+	}
+}

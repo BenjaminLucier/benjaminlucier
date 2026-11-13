@@ -1,0 +1,56 @@
+{
+	"specVersion": "1.0",
+	"host": {
+		"displayName": "Benjamin Lucier",
+		"documentationUrl": "https://benjaminlucier.com/llms.txt"
+	},
+	"entries": [
+		{
+			"identifier": "urn:air:benjaminlucier.com:site:llms-txt",
+			"displayName": "Benjamin Lucier — LLM-readable site overview",
+			"type": "text/markdown",
+			"url": "https://benjaminlucier.com/llms.txt",
+			"description": "Curated markdown overview of benjaminlucier.com: who Benjamin Lucier is, his CV, stack and projects, with links to every page.",
+			"tags": ["portfolio", "cv", "projects"],
+			"capabilities": ["bio", "cv", "project-showcase"],
+			"representativeQueries": [
+				"Who is Benjamin Lucier and what does he work on?",
+				"Where can I read Benjamin Lucier's CV?",
+				"What projects has Benjamin Lucier built?"
+			],
+			"version": "1.0.0",
+			"updatedAt": "2026-11-13T00:00:00Z"
+		},
+		{
+			"identifier": "urn:air:benjaminlucier.com:cv:pdf",
+			"displayName": "Benjamin Lucier — CV (PDF)",
+			"type": "application/pdf",
+			"url": "https://benjaminlucier.com/cv.pdf",
+			"description": "Curriculum vitae of Benjamin Lucier, staff/senior fullstack engineer open to agentic and ML application roles (fulltime, remote, Americas).",
+			"tags": ["cv", "resume", "career"],
+			"capabilities": ["work-history", "skills", "education"],
+			"representativeQueries": [
+				"What is Benjamin Lucier's work experience?",
+				"Is Benjamin Lucier open to work?",
+				"What skills does Benjamin Lucier have?"
+			],
+			"version": "1.0.0",
+			"updatedAt": "2026-11-13T00:00:00Z"
+		},
+		{
+			"identifier": "urn:air:benjaminlucier.com:site:home",
+			"displayName": "Benjamin Lucier — Portfolio site",
+			"type": "text/html",
+			"url": "https://benjaminlucier.com/",
+			"description": "Personal portfolio of Benjamin Lucier: engineer and founder building agentic, AI-native products, with his products, open-source work and a pathfinding visualizer.",
+			"tags": ["portfolio", "fullstack", "agentic", "machine-learning"],
+			"capabilities": ["bio", "project-showcase"],
+			"representativeQueries": [
+				"What kind of engineer is Benjamin Lucier?",
+				"Where can I see Benjamin Lucier's interactive projects?"
+			],
+			"version": "1.0.0",
+			"updatedAt": "2026-11-13T00:00:00Z"
+		}
+	]
+}

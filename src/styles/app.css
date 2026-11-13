@@ -1,0 +1,237 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
+
+/*
+ * Design tokens.
+ * Raw palette lives on [data-mode] so it can swap at runtime (the inline
+ * script in <head> sets it before first paint). Defaults to dark: the root
+ * tokens are dark, Document renders <html data-mode="dark"> for no-JS
+ * visitors, and [data-mode="light"] overrides for light mode.
+ * Semantic tokens below map onto them with `inline`, so utilities such as
+ * `bg-paper` / `text-ink` stay var() references and repaint on swap.
+ */
+
+:root,
+[data-mode="dark"] {
+	color-scheme: dark;
+	--c-paper: #121212;
+	--c-wash: #1b1b1b;
+	--c-ink: #f2f2f2;
+	--c-body: #d6d6d6;
+	--c-muted: #a0a0a0;
+	--c-faint: #7c7c7c;
+	--c-rule: #2d2d2d;
+	--c-rule-strong: #f2f2f2;
+	--c-link: #7ab0ff;
+	--c-link-hover: #a8cbff;
+	--c-focus: #7ab0ff;
+}
+
+[data-mode="light"] {
+	color-scheme: light;
+	--c-paper: #ffffff;
+	--c-wash: #f7f7f7;
+	--c-ink: #1f1f1f;
+	--c-body: #363737;
+	--c-muted: #6b6b6b;
+	--c-faint: #8a8a8a;
+	--c-rule: #e6e6e6;
+	--c-rule-strong: #1f1f1f;
+	--c-link: #1a5fb4;
+	--c-link-hover: #0f3f80;
+	--c-focus: #1a5fb4;
+}
+
+@theme inline {
+	--color-paper: var(--c-paper);
+	--color-wash: var(--c-wash);
+	--color-ink: var(--c-ink);
+	--color-body: var(--c-body);
+	--color-muted: var(--c-muted);
+	--color-faint: var(--c-faint);
+	--color-rule: var(--c-rule);
+	--color-rule-strong: var(--c-rule-strong);
+	--color-link: var(--c-link);
+	--color-link-hover: var(--c-link-hover);
+	--color-focus: var(--c-focus);
+
+	/*
+	 * Catppuccin, for every coloured figure: bg-ctp-blue, text-ctp-subtext0, ...
+	 * Names only; the values are in src/lib/catppuccin.ts, injected by Document.tsx as
+	 * --ctp-* variables (Latte under [data-mode="light"], Mocha otherwise).
+	 */
+	--color-ctp-rosewater: var(--ctp-rosewater);
+	--color-ctp-flamingo: var(--ctp-flamingo);
+	--color-ctp-pink: var(--ctp-pink);
+	--color-ctp-mauve: var(--ctp-mauve);
+	--color-ctp-red: var(--ctp-red);
+	--color-ctp-maroon: var(--ctp-maroon);
+	--color-ctp-peach: var(--ctp-peach);
+	--color-ctp-yellow: var(--ctp-yellow);
+	--color-ctp-green: var(--ctp-green);
+	--color-ctp-teal: var(--ctp-teal);
+	--color-ctp-sky: var(--ctp-sky);
+	--color-ctp-sapphire: var(--ctp-sapphire);
+	--color-ctp-blue: var(--ctp-blue);
+	--color-ctp-lavender: var(--ctp-lavender);
+	--color-ctp-text: var(--ctp-text);
+	--color-ctp-subtext1: var(--ctp-subtext1);
+	--color-ctp-subtext0: var(--ctp-subtext0);
+	--color-ctp-overlay2: var(--ctp-overlay2);
+	--color-ctp-overlay1: var(--ctp-overlay1);
+	--color-ctp-overlay0: var(--ctp-overlay0);
+	--color-ctp-surface2: var(--ctp-surface2);
+	--color-ctp-surface1: var(--ctp-surface1);
+	--color-ctp-surface0: var(--ctp-surface0);
+	--color-ctp-base: var(--ctp-base);
+	--color-ctp-mantle: var(--ctp-mantle);
+	--color-ctp-crust: var(--ctp-crust);
+}
+
+@theme {
+	--font-serif:
+		Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+	--font-sans:
+		-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+		sans-serif;
+	--font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+	--container-column: 40.25rem; /* ~644px reading column */
+	--container-page: 64rem;
+}
+
+@layer base {
+	html {
+		scrollbar-gutter: stable;
+		-webkit-text-size-adjust: 100%;
+		text-rendering: optimizeLegibility;
+	}
+
+	body {
+		background: var(--color-paper);
+		color: var(--color-body);
+		font-family: var(--font-serif);
+		font-size: 1.125rem;
+		line-height: 1.6;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	/* Only animate colours once the page is live, never on first paint. */
+	html[data-ready] body {
+		transition:
+			background-color 150ms ease,
+			color 150ms ease;
+	}
+
+	a {
+		color: var(--color-link);
+	}
+	a:hover {
+		color: var(--color-link-hover);
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--color-focus);
+		outline-offset: 2px;
+	}
+
+	/* Anchored headings stop below the sticky nav instead of under it. */
+	[id] {
+		scroll-margin-top: 6rem;
+	}
+
+	::selection {
+		background: color-mix(in srgb, var(--color-link) 25%, transparent);
+	}
+}
+
+@layer components {
+	.nav-link {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		/* 44px tap target; the active underline is drawn near the text, not the box edge. */
+		min-height: 2.75rem;
+		font-family: var(--font-sans);
+		font-size: 0.8125rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--color-ink);
+		text-decoration: none;
+		padding: 0 0.25rem;
+	}
+	.nav-link::after {
+		content: "";
+		position: absolute;
+		right: 0.25rem;
+		bottom: 0.625rem;
+		left: 0.25rem;
+		height: 2px;
+		background: transparent;
+	}
+	.nav-link:hover {
+		color: var(--color-link);
+	}
+	.nav-link[data-active]::after {
+		background: var(--color-ink);
+	}
+
+	.meta {
+		font-family: var(--font-sans);
+		font-size: 0.875rem;
+		color: var(--color-muted);
+	}
+
+	/* Small sans link (back links, "Open PDF ↗"): standard blue.
+    	   The padding/negative-margin pair grows the tap target to ~44px without
+    	   changing the space it takes in the layout. */
+	.meta-link {
+		font-family: var(--font-sans);
+		font-size: 0.875rem;
+		color: var(--color-link);
+		display: inline-block;
+		padding: 0.875rem 0.375rem;
+		margin: -0.875rem -0.375rem;
+	}
+	.meta-link:hover {
+		color: var(--color-link-hover);
+	}
+
+	/* Running text (the About section). */
+	.prose {
+		font-size: 1.1875rem;
+		line-height: 1.7;
+		color: var(--color-body);
+		overflow-wrap: break-word;
+	}
+	.prose > * + * {
+		margin-top: 1.4em;
+	}
+	.prose a {
+		text-decoration: underline;
+		text-underline-offset: 0.18em;
+		text-decoration-thickness: 1px;
+	}
+	.prose strong {
+		color: var(--color-ink);
+		font-weight: 700;
+	}
+}
+
+/*
+ * Page gutter with notch / home-indicator safe areas (the viewport meta uses
+ * viewport-fit=cover). env() falls back to 0 where unsupported.
+ */
+@layer components {
+	.page-shell {
+		padding-left: max(1.25rem, env(safe-area-inset-left));
+		padding-right: max(1.25rem, env(safe-area-inset-right));
+	}
+	@media (min-width: 40rem) {
+		.page-shell {
+			padding-left: max(2rem, env(safe-area-inset-left));
+			padding-right: max(2rem, env(safe-area-inset-right));
+		}
+	}
+}

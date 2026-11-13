@@ -1,0 +1,17 @@
+# Content-hashed assets: the URL changes whenever the content does, so a year of
+# immutable browser caching is safe across deploys.
+/assets/*
+	Cache-Control: public, max-age=31556952, immutable
+
+# Thumbnails keep stable URLs but are regenerated in place, so cache for a day
+# and revalidate in the background instead of immutably.
+/work-thumbnails/*
+	Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/work-og/*
+	Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# Standard hardening; applies to every static response, HTML included.
+/*
+	X-Content-Type-Options: nosniff
+	Referrer-Policy: strict-origin-when-cross-origin
+	X-Frame-Options: DENY

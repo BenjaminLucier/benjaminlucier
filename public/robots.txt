@@ -1,0 +1,8 @@
+# All crawlers — search engines and AI alike — are welcome: everything on the
+# site is crawlable. Named crawlers fall back to this group.
+# LLM-readable site overview: https://benjaminlucier.com/llms.txt
+
+User-agent: *
+Allow: /
+
+Sitemap: https://benjaminlucier.com/sitemap.xml

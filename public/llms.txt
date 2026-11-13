@@ -1,0 +1,35 @@
+# Benjamin Lucier
+
+> Personal portfolio of Benjamin Lucier, a staff/senior fullstack engineer and founder who builds agentic, AI-native products. The site shares his CV, the stack he works with, and his work
+
+Benjamin Lucier is open to staff/senior fullstack engineering work on agentic and ML applications (fulltime, remote, Americas). He has scaled infrastructure past $10M ARR, grown a team to over 20 engineers, and loves taking products from zero to one. Outside of work: travel (~30 countries), sailing, motorcycling, splitboarding, chess and reading.
+
+## About
+
+- [Home](https://benjaminlucier.com/): About Benjamin, what he is looking for, and featured work
+- [Stack](https://benjaminlucier.com/stack): Technologies and tools he works with, grouped by area
+- [CV](https://benjaminlucier.com/cv): CV page; a PDF version is at [cv.pdf](https://benjaminlucier.com/cv.pdf)
+
+## Portfolio
+
+- [Incredible](https://useincredible.com/): A personal everything app: notes, typed tables, goals, fitness, flashcards and AI chat in one workspace.
+- [PXStudio](https://pxstud.io/): A pixel art and animation editor for the browser or desktop that works offline and is scriptable in Lua.
+- [Sophistry](https://sophistry.dev/): Manim-inspired, live maths animations and charts for the web, in TypeScript with SolidJS and React bindings.
+- [cf-images](https://github.com/BenjaminLucier/cf-rs/tree/main/crates/cf-images): An async Rust client for Cloudflare Images, published on crates.io as part of cf-rs.
+- [cf-stream](https://github.com/BenjaminLucier/cf-rs/tree/main/crates/cf-stream): An async Rust client for Cloudflare Stream, published on crates.io as part of cf-rs.
+- [anzan](https://github.com/BenjaminLucier/anzan): A terminal trainer for mental math in Rust: timed drills, a stats dashboard and modes that find your weak spots.
+- [Travel Nexus](https://travel.nexus/): A map-first trip planner with shareable trips and places curated from the whole OpenStreetMap planet.
+- [Pathfinding](https://benjaminlucier.com/pathfinding): A visualizer that races A*, Dijkstra, BFS and DFS on the same maze, drawn both as a grid and as a graph.
+- [Portfolio](https://benjaminlucier.com/): This site: my portfolio, CV and stack, rendered at build time to static HTML.
+- [Portfolio](https://benjaminlucier.com/portfolio): All of the above, with pictures
+
+## Elsewhere
+
+- [LinkedIn](https://www.linkedin.com/in/benjaminlucier): Professional profile and contact
+- [GitHub](https://github.com/benjaminlucier): Code and open-source work
+- [YouTube](https://www.youtube.com/@benjaminlucier): Videos
+- [Substack](https://benjaminlucier.substack.com): Newsletter: new work and writing by email
+
+## Optional
+
+- [AI catalog](https://benjaminlucier.com/.well-known/ai-catalog.json): Machine-readable capability manifest (ARD spec)

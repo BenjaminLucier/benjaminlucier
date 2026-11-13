@@ -1,0 +1,2 @@
+# Build metadata Vite leaves in dist/client; not part of the site.
+.vite
