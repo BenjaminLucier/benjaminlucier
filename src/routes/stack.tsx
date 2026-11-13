@@ -10,12 +10,17 @@ const categories: Category[] = [
 		title: "Languages",
 		groups: [
 			{
-				items: ["Python", "TypeScript, JavaScript", "Rust", "SQL, GraphQL"],
+				items: [
+					"Python (FastAPI, Django)",
+					"TypeScript, JavaScript",
+					"Rust (Axum, Tokio, SQLx)",
+					"SQL, GraphQL",
+				],
 			},
 		],
 	},
 	{
-		title: "Frontend",
+		title: "Frameworks",
 		groups: [
 			{
 				items: [
@@ -23,15 +28,9 @@ const categories: Category[] = [
 					"SolidJS",
 					"TanStack (Query, Start)",
 					"TailwindCSS",
+					"Tauri",
+					"WebGPU",
 				],
-			},
-		],
-	},
-	{
-		title: "Backend & APIs",
-		groups: [
-			{
-				items: ["FastAPI, Django", "Axum, Tokio, SQLx"],
 			},
 		],
 	},
@@ -41,6 +40,12 @@ const categories: Category[] = [
 			{
 				items: ["PostgreSQL (PostGIS, pgvector)", "Redis"],
 			},
+		],
+	},
+	{
+		title: "Modern CLI",
+		groups: [
+			{ items: ["ripgrep, fd, eza, bat", "jq, yq, fzf, zoxide, yazi", "Stow"] },
 		],
 	},
 	{
@@ -95,9 +100,9 @@ const categories: Category[] = [
 			},
 			{
 				label: "IaC & CI/CD",
-				items: ["Terraform, Github Actions"],
+				items: ["Terraform, GitHub Actions"],
 			},
-			{ label: "Secrets", items: ["Doppler, Infisical"] },
+			{ label: "Secrets", items: ["Doppler, Infisical, envchain"] },
 			{ label: "Payments", items: ["Stripe, Chargebee"] },
 		],
 	},
@@ -106,12 +111,12 @@ const categories: Category[] = [
 		groups: [
 			{
 				items: [
-					"uv, ruff",
+					"uv, ruff, ty",
 					"Vite, Biome",
-					"Cargo",
-					"Node.js (nvm)",
-					"Just, Git",
-					"Zed, Claude Code",
+					"Cargo, sqlx",
+					"Node.js (fnm), pnpm",
+					"Just, Git, gh",
+					"Zed, Helix, Claude Code",
 					"OpenSuperWhisper",
 					"macOS, Homebrew",
 					"zsh, Ghostty",

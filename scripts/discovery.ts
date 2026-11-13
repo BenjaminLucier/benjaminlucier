@@ -19,8 +19,8 @@ const summary =
 const intro =
 	`${site.name} is open to staff/senior fullstack engineering work on ` +
 	"agentic and ML applications (fulltime, remote, Americas). He has " +
-	"scaled infrastructure past $10M ARR, grown a team to over 20 " +
-	"engineers, and loves taking products from zero to one. Outside of " +
+	"scaled infrastructure past $10M ARR, helped scale an " +
+	"engineering team 5x, and loves taking products from zero to one. Outside of " +
 	"work: travel (~30 countries), sailing, motorcycling, splitboarding, " +
 	"chess and reading.";
 

@@ -14,39 +14,50 @@ export default function Home() {
 			/>
 			{/* About and Featured are centred in the space above the newsletter. */}
 			{/* pt: breathing room below the header even when there is no spare height to centre in. */}
-			<div class="my-auto flex flex-col gap-12 pt-6 sm:pt-10">
+			<div class="my-auto flex flex-col gap-12 pt-2 sm:pt-4">
 				<section aria-labelledby="about">
 					{/* Not shown: the nav already marks this page as About. Kept for screen
 					    readers and search engines, as the page's main heading. */}
 					<h1 id="about" class="sr-only">
 						About Benjamin Lucier
 					</h1>
-					<div class="flex items-start gap-8">
-						<FeaturedPhotos class="hidden md:block" />
-						<div class="min-w-0 flex-1">
-							<p class="mb-5 flex items-start gap-2.5 font-sans text-sm text-muted">
-								{/* A live-status pulse: a ring that grows and fades behind the dot.
-								    Skipped for people who ask their system for reduced motion. */}
-								<span
-									class="relative mt-1.5 inline-flex size-2 shrink-0"
-									aria-hidden="true"
-								>
-									<span class="absolute inline-flex size-full rounded-full bg-ctp-green opacity-75 motion-safe:animate-ping" />
-									<span class="relative inline-flex size-2 rounded-full bg-ctp-green" />
-								</span>
-								<span>
-									<span class="font-semibold text-ink">Open to work</span>
-									{
-										" · Staff / Senior Fullstack SWE · Agentic / ML Applications · Fulltime, Remote, Americas"
-									}
-								</span>
-							</p>
-							<div class="prose">
+					<p class="mb-6 flex items-start gap-2.5 font-sans text-sm text-muted">
+						{/* A live-status pulse: a ring that grows and fades behind the dot.
+						    Skipped for people who ask their system for reduced motion. */}
+						<span
+							class="relative mt-1.5 inline-flex size-2 shrink-0"
+							aria-hidden="true"
+						>
+							<span class="absolute inline-flex size-full rounded-full bg-ctp-green opacity-75 motion-safe:animate-ping" />
+							<span class="relative inline-flex size-2 rounded-full bg-ctp-green" />
+						</span>
+						<span>
+							<span class="font-semibold text-ink">Open to work</span>
+							{
+								" · Staff / Senior Fullstack SWE · Agentic / ML Applications · Fulltime, Remote, Americas"
+							}
+						</span>
+					</p>
+					{/* The photo floats, so the bio wraps around and then under it. Its top
+					    lines up with the first line of text, not the line box above it. */}
+					<div class="flow-root">
+						<FeaturedPhotos class="mt-1.5 mr-7 mb-3 hidden md:float-left md:block" />
+						<div>
+							<div class="prose text-pretty">
 								<p>
-									I'm an engineer and founder who loves taking products from
-									zero to one. I've scaled infrastructure past $10M ARR, helped
-									grow a team from a few members to over 20 engineers, and am
-									happiest building agentic, AI-native products.
+									I'm a founder and fullstack ML engineer who loves taking
+									products from zero to one. I architect and build entire
+									applications end to end, from the database and backend to the
+									frontend, cloud infrastructure and CI/CD. I do most of my work
+									using Rust, Python, TypeScript and SQL.
+								</p>
+								<p>
+									Lately that means building agentic functionality into products
+									and putting machine learning into production, like
+									recommendation systems that lifted engagement by up to 36%
+									over baseline. Before that, I owned the core API and billing
+									infrastructure behind more than $10M ARR, and helped scale the
+									engineering team 5x.
 								</p>
 								<p>
 									I love an adventure: I've travelled to ~30 countries,

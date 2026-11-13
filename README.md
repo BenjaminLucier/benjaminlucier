@@ -1,7 +1,16 @@
 # Benjamin Lucier
 
-Staff / senior fullstack engineer and founder, building agentic, AI-native
-products. Open to work: fulltime, remote, Americas.
+Founder and fullstack ML engineer who loves taking products from zero to
+one. I architect and build entire applications end to end, from the database
+and backend to the frontend, cloud infrastructure and CI/CD, and lately that
+means agentic functionality and machine learning in production.
+
+<p>
+<img alt="Rust" src="https://img.shields.io/badge/Rust-B7410E?style=flat-square&logo=rust&logoColor=white">
+<img alt="Python" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white">
+<img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white">
+<img alt="PostgreSQL" src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white">
+</p>
 
 [benjaminlucier.com](https://benjaminlucier.com) ·
 [CV](https://benjaminlucier.com/cv.pdf) ·
@@ -32,5 +41,6 @@ products. Open to work: fulltime, remote, Americas.
 ---
 
 <sub>This repository is also the source of
-[benjaminlucier.com](https://benjaminlucier.com). It is source-available, not
-open source: see [LICENSE](LICENSE).</sub>
+[benjaminlucier.com](https://benjaminlucier.com), under the [MIT](LICENSE)
+licence. My photos and personal information are of course not MIT, but feel
+free to use this as a starting point for your own portfolio.</sub>

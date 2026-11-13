@@ -2,7 +2,7 @@
 
 > Personal portfolio of Benjamin Lucier, a staff/senior fullstack engineer and founder who builds agentic, AI-native products. The site shares his CV, the stack he works with, and his work
 
-Benjamin Lucier is open to staff/senior fullstack engineering work on agentic and ML applications (fulltime, remote, Americas). He has scaled infrastructure past $10M ARR, grown a team to over 20 engineers, and loves taking products from zero to one. Outside of work: travel (~30 countries), sailing, motorcycling, splitboarding, chess and reading.
+Benjamin Lucier is open to staff/senior fullstack engineering work on agentic and ML applications (fulltime, remote, Americas). He has scaled infrastructure past $10M ARR, helped scale an engineering team 5x, and loves taking products from zero to one. Outside of work: travel (~30 countries), sailing, motorcycling, splitboarding, chess and reading.
 
 ## About
 

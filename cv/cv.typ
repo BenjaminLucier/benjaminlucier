@@ -89,7 +89,7 @@
     [Promoted twice in two years (Junior → SWE → Senior) for core infrastructure ownership and technical leadership.],
     [Managed core GraphQL/REST API services and Chargebee billing infrastructure supporting >\$10m ARR.],
     [Led sensitive user permission system overhaul, engineering excellence initiative, billing migrations and codebase refactors, pushing 1000s of annual git commits and reviews (pre coding agents).],
-    [Interviewed and evaluated candidates, helping scale the engineering team from 4 to >20 members.],
+    [Interviewed and evaluated candidates, helping scale the engineering team 5x.],
   )
   #entry(
     "Software Engineering Intern",
