@@ -18,7 +18,7 @@ means agentic functionality and machine learning in production.
 [Substack](https://benjaminlucier.substack.com) ·
 [YouTube](https://www.youtube.com/@benjaminlucier)
 
-## Products
+## Projects
 
 - [**Incredible**](https://useincredible.com) (alpha): a personal everything
   app. Notes, typed tables, goals, fitness, flashcards and AI chat in one

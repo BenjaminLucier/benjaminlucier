@@ -28,24 +28,9 @@ const categories: Category[] = [
 					"SolidJS",
 					"TanStack (Query, Start)",
 					"TailwindCSS",
-					"Tauri",
-					"WebGPU",
+					"Tauri, WebGPU",
 				],
 			},
-		],
-	},
-	{
-		title: "Databases & Data",
-		groups: [
-			{
-				items: ["PostgreSQL (PostGIS, pgvector)", "Redis"],
-			},
-		],
-	},
-	{
-		title: "Modern CLI",
-		groups: [
-			{ items: ["ripgrep, fd, eza, bat", "jq, yq, fzf, zoxide, yazi", "Stow"] },
 		],
 	},
 	{
@@ -89,6 +74,20 @@ const categories: Category[] = [
 				label: "Platforms",
 				items: ["Fly.io", "Cloudflare (Workers, R2)", "Neon"],
 			},
+		],
+	},
+	{
+		title: "Databases",
+		groups: [
+			{
+				items: ["PostgreSQL (PostGIS, pgvector)", "Redis"],
+			},
+		],
+	},
+	{
+		title: "Modern CLI",
+		groups: [
+			{ items: ["ripgrep, fd, eza, bat", "jq, yq, fzf, zoxide, yazi", "Stow"] },
 		],
 	},
 	{

@@ -100,6 +100,32 @@
   )
 ]
 
+#section("Open Source")[
+  #entry(
+    "Sophistry",
+    link("https://sophistry.dev")[sophistry.dev],
+    "Author & Maintainer",
+    "",
+    [Open-source, Manim-inspired library for controllable maths animations and charts on the web.],
+    [Pure TypeScript Canvas2D core with code-generated SolidJS and React bindings, LaTeX and 3D.],
+  )
+  #entry(
+    "cf-rs",
+    link("https://github.com/BenjaminLucier/cf-rs")[github.com/BenjaminLucier/cf-rs],
+    "Author & Maintainer",
+    "",
+    [Published `cf-images`, an async Rust client for Cloudflare Images, on #link("https://crates.io/crates/cf-images")[crates.io] with CI and automated releases.],
+    [Published `cf-stream`, an async Rust client for Cloudflare Stream, on #link("https://crates.io/crates/cf-stream")[crates.io] with CI and automated releases.],
+  )
+  #entry(
+    "anzan",
+    link("https://github.com/BenjaminLucier/anzan")[github.com/BenjaminLucier/anzan],
+    "Author & Maintainer",
+    "",
+    [Rust TUI for mental math practice with adaptive drills, published on #link("https://crates.io/crates/anzan")[crates.io] and Homebrew.],
+  )
+]
+
 #section("Projects")[
   #entry(
     "Incredible",
@@ -116,29 +142,6 @@
     "",
     [Pixel art and animation editor for web and desktop (Tauri), with premium cloud sync (Rust, SolidJS, TypeGPU).],
     [Sandboxed Lua 5.4 (WASM) scripting engine for user-written tools and automation.],
-  )
-  #entry(
-    "Sophistry",
-    link("https://sophistry.dev")[sophistry.dev],
-    "Author & Maintainer — Open Source",
-    "",
-    [Open-source, Manim-inspired library for controllable maths animations and charts on the web.],
-    [Pure TypeScript Canvas2D core with code-generated SolidJS and React bindings, LaTeX and 3D.],
-  )
-  #entry(
-    "cf-rs",
-    link("https://github.com/BenjaminLucier/cf-rs")[github.com/BenjaminLucier/cf-rs],
-    "Author & Maintainer — Open Source",
-    "",
-    [Published `cf-images`, an async Rust client for Cloudflare Images, on #link("https://crates.io/crates/cf-images")[crates.io] with CI and automated releases.],
-    [Published `cf-stream`, an async Rust client for Cloudflare Stream, on #link("https://crates.io/crates/cf-stream")[crates.io] with CI and automated releases.],
-  )
-  #entry(
-    "anzan",
-    link("https://github.com/BenjaminLucier/anzan")[github.com/BenjaminLucier/anzan],
-    "Author & Maintainer — Open Source",
-    "",
-    [Rust TUI for mental math practice with adaptive drills, published on #link("https://crates.io/crates/anzan")[crates.io] and Homebrew.],
   )
   #entry(
     "Travel.Nexus",
@@ -170,7 +173,7 @@
   )
   #skill(
     "Infrastructure & DevOps",
-    [AWS (EC2, S3, ECS, RDS, VPC, Route53 & IAM), Terraform, Docker, Neon, Fly.io, Cloudflare (Workers, R2), Vercel, Github Actions CI/CD, Infisical, Doppler],
+    [AWS (EC2, S3, ECS, RDS, VPC, Route53 & IAM), Terraform, Docker, Neon, Fly.io, Cloudflare (Workers, R2), Vercel, GitHub Actions CI/CD, Infisical, Doppler],
   )
   #skill("Other", [Stripe, WorkOS, PostGIS, pgvector, Redis, Mixpanel, Airtable, Segment, Hasura, MapLibre])
 ]
