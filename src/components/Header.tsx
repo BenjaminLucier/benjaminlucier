@@ -22,7 +22,7 @@ export default function Header() {
 		};
 		// Growing past the phone breakpoint (e.g. rotating a tablet) swaps in the
 		// inline links, so the overlay closes rather than lingering behind them.
-		const wide = window.matchMedia("(min-width: 40rem)");
+		const wide = window.matchMedia("(min-width: 48rem)");
 		const onWide = () => {
 			if (wide.matches) setMenuOpen(false);
 		};
@@ -38,7 +38,7 @@ export default function Header() {
 	return (
 		<nav
 			aria-label="Primary"
-			class="sticky top-0 z-40 min-h-15 border-b border-rule bg-paper py-2 sm:min-h-0 sm:border-b-0 sm:py-3 sm:before:absolute sm:before:-inset-x-10 sm:before:inset-y-0 sm:before:-z-10 sm:before:border-b sm:before:border-rule sm:before:bg-paper sm:before:content-['']"
+			class="sticky top-0 z-40 min-h-15 border-b border-rule bg-paper py-2 md:min-h-0 md:border-b-0 md:py-4 lg:py-5 md:before:absolute md:before:-inset-x-10 md:before:inset-y-0 md:before:-z-10 md:before:border-b md:before:border-rule md:before:bg-paper md:before:content-['']"
 		>
 			<button
 				type="button"
@@ -46,7 +46,7 @@ export default function Header() {
 				aria-expanded={menuOpen() ? "true" : "false"}
 				aria-controls="mobile-nav"
 				aria-label={menuOpen() ? "Close menu" : "Open menu"}
-				class="absolute top-2 left-0 inline-flex size-11 cursor-pointer items-center justify-center text-muted hover:text-ink sm:hidden"
+				class="absolute top-2 left-0 inline-flex size-11 cursor-pointer items-center justify-center text-muted hover:text-ink md:hidden"
 			>
 				<Icon icon={menuOpen() ? X : Menu} size={22} />
 			</button>
@@ -55,12 +55,12 @@ export default function Header() {
 				id="primary-nav"
 				// Phones get the overlay below instead. Tablets: links sit right, beside the
 				// toggle, clear of the name. Desktop: centred.
-				class="hidden items-center justify-center gap-x-6 gap-y-1 sm:flex sm:flex-row sm:flex-wrap sm:justify-end sm:pr-14 lg:justify-center lg:gap-x-8 lg:pr-0"
+				class="hidden items-center justify-center gap-x-6 gap-y-1 md:flex md:flex-row md:flex-wrap md:justify-end md:pr-14 lg:justify-center lg:gap-x-8 lg:pr-0"
 			>
 				<For each={nav}>
 					{(item) => (
 						<li>
-							<a href={item.href} class="nav-link">
+							<a href={item.href} class="nav-link lg:text-sm">
 								{item.label}
 							</a>
 						</li>
@@ -70,11 +70,14 @@ export default function Header() {
 
 			{/* Mobile: centred and pinned to the bar, so it stays put when the menu
 			    expands the nav. Desktop: at the left edge. */}
-			<div class="absolute top-[30px] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center leading-tight whitespace-nowrap sm:top-1/2 sm:left-0 sm:translate-x-0 sm:text-left">
-				<a href="/" class="font-serif text-lg font-bold text-ink no-underline">
+			<div class="absolute top-[30px] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center leading-tight whitespace-nowrap md:top-1/2 md:left-0 md:translate-x-0 md:text-left">
+				<a
+					href="/"
+					class="font-serif text-xl font-bold text-ink no-underline lg:text-2xl"
+				>
 					{site.name}
 				</a>
-				<p class="font-sans text-xs text-muted">
+				<p class="font-sans text-xs text-muted lg:text-sm">
 					Using{" "}
 					<a
 						href="https://en.wikipedia.org/wiki/Logos"
@@ -92,7 +95,7 @@ export default function Header() {
 			<Show when={menuOpen()}>
 				<div
 					id="mobile-nav"
-					class="fixed inset-x-0 top-[61px] bottom-0 flex flex-col items-center justify-center gap-10 bg-paper pb-[61px] sm:hidden"
+					class="fixed inset-x-0 top-[61px] bottom-0 flex flex-col items-center justify-center gap-10 bg-paper pb-[61px] md:hidden"
 				>
 					<ul class="flex flex-col items-center gap-4">
 						<For each={nav}>
@@ -113,7 +116,7 @@ export default function Header() {
 				</div>
 			</Show>
 
-			<div class="absolute top-2 right-0 flex items-center sm:top-1/2 sm:-translate-y-1/2">
+			<div class="absolute top-2 right-0 flex items-center md:top-1/2 md:-translate-y-1/2">
 				{/* Below lg there is no room beside the links; the footer carries them. */}
 				<SocialLinks class="hidden items-center lg:flex" />
 				<ThemeToggle />
