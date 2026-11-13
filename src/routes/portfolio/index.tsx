@@ -7,8 +7,8 @@ export default function Portfolio() {
 	return (
 		<>
 			<PageTitle
-				seoTitle="Portfolio — Benjamin Lucier: Incredible, Travel.Nexus & More"
-				description="Portfolio of Benjamin Lucier: Incredible, a personal everything app, Travel.Nexus, a trip planner, and open-source Rust code."
+				seoTitle="Portfolio — Benjamin Lucier: Incredible, Travel Nexus & More"
+				description="Portfolio of Benjamin Lucier: Incredible, a personal everything app, Travel Nexus, a trip planner, and open-source Rust code."
 			/>
 			<h1 class="mb-8 font-sans text-4xl font-bold tracking-tight text-ink">
 				Portfolio

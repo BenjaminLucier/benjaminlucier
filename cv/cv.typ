@@ -144,7 +144,7 @@
     [Sandboxed Lua 5.4 (WASM) scripting engine for user-written tools and automation.],
   )
   #entry(
-    "Travel.Nexus",
+    "Travel Nexus",
     link("https://travel.nexus")[travel.nexus],
     "Founder & Lead Engineer — Public Alpha",
     "",
