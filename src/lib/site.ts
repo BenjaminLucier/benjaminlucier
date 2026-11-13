@@ -10,6 +10,8 @@ export const site = {
 	/** Substack publication; the signup card links to its subscribe page.
 	 * Swap for a custom domain (e.g. a benjaminlucier.com subdomain) once it's set up. */
 	newsletter: "https://benjaminlucier.substack.com",
+	/** This site's source, linked from the footer. */
+	source: "https://github.com/BenjaminLucier/benjaminlucier",
 };
 
 export const nav = [

@@ -1,7 +1,7 @@
 import SocialLinks from "~/components/SocialLinks";
 import { site } from "~/lib/site";
 
-/** Site-wide footer: build credits and copyright. */
+/** Site-wide footer: build credits, a link to the source and copyright. */
 export default function Footer() {
 	// Baked in at prerender; refreshed on each deploy.
 	const year = new Date().getFullYear();
@@ -21,6 +21,8 @@ export default function Footer() {
 				<ExternalLink href="https://www.cloudflare.com">
 					Cloudflare
 				</ExternalLink>
+				{" · "}
+				<ExternalLink href={site.source}>View Source</ExternalLink>
 				{` · © ${site.name} ${year}`}
 			</p>
 		</footer>
