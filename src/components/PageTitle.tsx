@@ -18,8 +18,8 @@ const person: Person = {
 	name: site.name,
 	url: site.url,
 	image: `${site.url}/FeaturedImage1.webp`,
-	description: "Engineer and founder building agentic, AI-native products.",
-	jobTitle: "Fullstack Engineer",
+	description: "Fullstack ML engineer who builds products end to end.",
+	jobTitle: "Fullstack ML Engineer",
 	sameAs: social.map((s) => s.href),
 };
 

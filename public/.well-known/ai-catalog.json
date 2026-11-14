@@ -26,12 +26,12 @@
 			"displayName": "Benjamin Lucier — CV (PDF)",
 			"type": "application/pdf",
 			"url": "https://benjaminlucier.com/cv.pdf",
-			"description": "Curriculum vitae of Benjamin Lucier, staff/senior fullstack engineer open to agentic and ML application roles (fulltime, remote, Americas).",
+			"description": "Curriculum vitae of Benjamin Lucier, fullstack ML engineer: work experience, open source, projects, education and technical skills.",
 			"tags": ["cv", "resume", "career"],
 			"capabilities": ["work-history", "skills", "education"],
 			"representativeQueries": [
 				"What is Benjamin Lucier's work experience?",
-				"Is Benjamin Lucier open to work?",
+				"Where has Benjamin Lucier worked?",
 				"What skills does Benjamin Lucier have?"
 			],
 			"version": "1.0.0",
@@ -42,7 +42,7 @@
 			"displayName": "Benjamin Lucier — Portfolio site",
 			"type": "text/html",
 			"url": "https://benjaminlucier.com/",
-			"description": "Personal portfolio of Benjamin Lucier: engineer and founder building agentic, AI-native products, with his products, open-source work and a pathfinding visualizer.",
+			"description": "Personal portfolio of Benjamin Lucier, fullstack ML engineer, with his products, open-source work and a pathfinding visualizer.",
 			"tags": ["portfolio", "fullstack", "agentic", "machine-learning"],
 			"capabilities": ["bio", "project-showcase"],
 			"representativeQueries": [

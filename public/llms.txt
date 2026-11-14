@@ -1,12 +1,12 @@
 # Benjamin Lucier
 
-> Personal portfolio of Benjamin Lucier, a staff/senior fullstack engineer and founder who builds agentic, AI-native products. The site shares his CV, the stack he works with, and his work
+> Personal portfolio of Benjamin Lucier, a fullstack ML engineer. The site shares his CV, the stack he works with, and his work.
 
-Benjamin Lucier is open to staff/senior fullstack engineering work on agentic and ML applications (fulltime, remote, Americas). He has scaled infrastructure past $10M ARR, helped scale an engineering team 5x, and loves taking products from zero to one. Outside of work: travel (~30 countries), sailing, motorcycling, splitboarding, chess and reading.
+Benjamin Lucier builds applications end to end, from the database and backend to the frontend, cloud infrastructure and CI/CD, mostly in Rust, Python, TypeScript and SQL. He has put ML recommendation systems into production, owned infrastructure behind more than $10M ARR, helped scale an engineering team 5x, and loves taking products from zero to one. Outside of work: travel (~30 countries), sailing, motorcycling, splitboarding, chess and reading.
 
 ## About
 
-- [Home](https://benjaminlucier.com/): About Benjamin, what he is looking for, and featured work
+- [Home](https://benjaminlucier.com/): About Benjamin and his featured work
 - [Stack](https://benjaminlucier.com/stack): Technologies and tools he works with, grouped by area
 - [CV](https://benjaminlucier.com/cv): CV page; a PDF version is at [cv.pdf](https://benjaminlucier.com/cv.pdf)
 
@@ -20,7 +20,6 @@ Benjamin Lucier is open to staff/senior fullstack engineering work on agentic an
 - [anzan](https://github.com/BenjaminLucier/anzan): A terminal trainer for mental math in Rust: timed drills, a stats dashboard and modes that find your weak spots.
 - [Travel Nexus](https://travel.nexus/): A map-first trip planner with shareable trips and places curated from the whole OpenStreetMap planet.
 - [Pathfinding](https://benjaminlucier.com/pathfinding): A visualizer that races A*, Dijkstra, BFS and DFS on the same maze, drawn both as a grid and as a graph.
-- [Portfolio](https://benjaminlucier.com/): This site: my portfolio, CV and stack, rendered at build time to static HTML.
 - [Portfolio](https://benjaminlucier.com/portfolio): All of the above, with pictures
 
 ## Elsewhere

@@ -12,15 +12,15 @@ const root = resolve(import.meta.dirname, "..");
 const url = (href: string) => new URL(href, site.url).toString();
 
 const summary =
-	`Personal portfolio of ${site.name}, a staff/senior fullstack engineer ` +
-	"and founder who builds agentic, AI-native products. The site shares " +
-	"his CV, the stack he works with, and his work";
+	`Personal portfolio of ${site.name}, a fullstack ML engineer. The site ` +
+	"shares his CV, the stack he works with, and his work.";
 
 const intro =
-	`${site.name} is open to staff/senior fullstack engineering work on ` +
-	"agentic and ML applications (fulltime, remote, Americas). He has " +
-	"scaled infrastructure past $10M ARR, helped scale an " +
-	"engineering team 5x, and loves taking products from zero to one. Outside of " +
+	`${site.name} builds applications end to end, from the database and ` +
+	"backend to the frontend, cloud infrastructure and CI/CD, mostly in Rust, " +
+	"Python, TypeScript and SQL. He has put ML recommendation systems into " +
+	"production, owned infrastructure behind more than $10M ARR, helped scale " +
+	"an engineering team 5x, and loves taking products from zero to one. Outside of " +
 	"work: travel (~30 countries), sailing, motorcycling, splitboarding, " +
 	"chess and reading.";
 
@@ -40,13 +40,16 @@ const lines = [
 	"",
 	"## About",
 	"",
-	`- [Home](${url("/")}): About Benjamin, what he is looking for, and featured work`,
+	`- [Home](${url("/")}): About Benjamin and his featured work`,
 	`- [Stack](${url("/stack")}): Technologies and tools he works with, grouped by area`,
 	`- [CV](${url("/cv")}): CV page; a PDF version is at [cv.pdf](${url("/cv.pdf")})`,
 	"",
 	"## Portfolio",
 	"",
-	...work.map((w) => `- [${w.title}](${url(w.href)}): ${w.summary}`),
+	// This site is already the subject of the file, so it isn't listed as a project.
+	...work
+		.filter((w) => url(w.href) !== url("/"))
+		.map((w) => `- [${w.title}](${url(w.href)}): ${w.summary}`),
 	`- [Portfolio](${url("/portfolio")}): All of the above, with pictures`,
 	"",
 	"## Elsewhere",

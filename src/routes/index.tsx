@@ -3,14 +3,15 @@ import FeaturedPhotos from "~/components/FeaturedPhotos";
 import NewsletterSignup from "~/components/NewsletterSignup";
 import PageTitle from "~/components/PageTitle";
 import WorkCard from "~/components/WorkCard";
+import { about } from "~/lib/about";
 import { work } from "~/lib/work";
 
 export default function Home() {
 	return (
 		<>
 			<PageTitle
-				seoTitle="Benjamin Lucier — Fullstack Engineer Building AI Products"
-				description="Fullstack engineer and founder building agentic, AI-native products: about me, what I'm looking for, and what I've built."
+				seoTitle="Benjamin Lucier — Fullstack ML Engineer"
+				description="Portfolio of Benjamin Lucier, fullstack ML engineer: about him, his CV and stack, and the products and open source he's made."
 			/>
 			{/* About and Featured are centred in the space above the newsletter. */}
 			{/* pt: breathing room below the header even when there is no spare height to centre in. */}
@@ -44,29 +45,23 @@ export default function Home() {
 						<FeaturedPhotos class="mt-1.5 mr-7 mb-3 hidden md:float-left md:block" />
 						<div>
 							<div class="prose text-pretty">
-								<p>
-									I'm a founder and fullstack ML engineer who loves taking
-									products from zero to one. I architect and build entire
-									applications end to end, from the database and backend to the
-									frontend, cloud infrastructure and CI/CD. I do most of my work
-									using Rust, Python, TypeScript and SQL.
-								</p>
-								<p>
-									Lately that means building agentic functionality into products
-									and putting machine learning into production, like
-									recommendation systems that lifted engagement by up to 36%
-									over baseline. Before that, I owned the core API and billing
-									infrastructure behind more than $10M ARR, and helped scale the
-									engineering team 5x.
-								</p>
-								<p>
-									I love an adventure: I've travelled to ~30 countries,
-									circumnavigated Vancouver Island on a sailboat, ridden my
-									motorcycle from coast to coast, splitboarded up and down
-									mountains in the Rockies, Alps and BC Coastal Ranges. When I
-									am not writing code or planning my next adventure, I like to
-									play chess and read.
-								</p>
+								<For each={about}>
+									{(paragraph) => (
+										<p>
+											<For each={paragraph}>
+												{(span) =>
+													typeof span === "string" ? (
+														span
+													) : (
+														<a href={span.href} target="_blank" rel="noopener">
+															{span.text}
+														</a>
+													)
+												}
+											</For>
+										</p>
+									)}
+								</For>
 							</div>
 						</div>
 					</div>

@@ -4,25 +4,77 @@
 
 Fields for the LinkedIn profile forms, newest first, in the same order as the CV.
 
+## Headline
+
+_Profile → edit intro (pencil by your name)._
+
+Headline (48/220):
+
+```text
+Fullstack ML Engineer · Rust, Python, TypeScript
+```
+
+## About
+
+_Profile → About → edit (pencil)._
+
+About (964/2600):
+
+```text
+I'm a founder and fullstack ML engineer who loves taking products from zero to one. I'm currently building Incredible full-time: one AI-powered workspace for notes, tasks, habits, fitness and flashcards, with an agent that works across all of it.
+
+I architect and build entire applications end to end, from the database and backend to the frontend, cloud infrastructure and CI/CD, mostly in Rust, Python, TypeScript and SQL. At The Suite I put ML recommendation systems into production that lifted engagement by up to 36% over baseline, owned the core API and billing infrastructure behind more than $10M ARR, and helped scale the engineering team 5x.
+
+I love an adventure: I've travelled to ~30 countries, circumnavigated Vancouver Island on a sailboat, ridden my motorcycle from coast to coast, splitboarded up and down mountains in the Rockies, Alps and BC Coastal Ranges. When I am not writing code or planning my next adventure, I like to play chess and read.
+```
+
 ## Experience
 
 _Profile → Add profile section → Add position._
 
-### Lead AI Application Engineer — Codex.Lawyer
+### Founder — Incredible
 
-- **Title:** Lead AI Application Engineer
-- **Company:** Codex.Lawyer
-- **Location type:** Remote
-- **Start date:** Nov 2025
-- **End date:** Apr 2026
-- **Skills:** Large Language Models (LLM), LangGraph, Retrieval-Augmented Generation (RAG), Amazon Web Services (AWS), Terraform
+- **Title:** Founder
+- **Company:** Incredible
+- **Start date:** Oct 2026
+- **End date:** (currently working here)
+- **Link (add under Media):** https://useincredible.com
 
-Description (402/2000):
+Description (197/2000):
 
 ```text
-• Engaged as head engineer to build an AI-native legal web app, collaborating directly with stakeholders.
-• Built an agentic legal assistant using LangGraph & pgvector, agentic RAG with ReAct tool-calling.
-• Architected 0→1 cloud infrastructure: multi-tenant AWS infra (3-tier VPC, ECS, RDS, IAM) via Terraform IaC, GHA CI/CD automated testing & deploys, serving a FastAPI backend and SolidJS frontend.
+• Personal "everything app" unifying notes, goals, fitness, flashcards, habits, bases, files, canvas and AI chat.
+• Rust (axum, Postgres) API, SolidJS frontend and a WebGPU graph view in Rust/wasm.
+```
+
+### Founder — PXStudio
+
+- **Title:** Founder
+- **Company:** PXStudio
+- **Start date:** Oct 2026
+- **End date:** (currently working here)
+- **Link (add under Media):** https://pxstud.io
+
+Description (194/2000):
+
+```text
+• Pixel art and animation editor for web and desktop (Tauri), with premium cloud sync (Rust, SolidJS, TypeGPU).
+• Sandboxed Lua 5.4 (WASM) scripting engine for user-written tools and automation.
+```
+
+### Career break
+
+_Profile → Add profile section → Add career break._
+
+- **Type:** Travel
+- **Start date:** Aug 2025
+- **End date:** Oct 2026
+
+Description (160 characters):
+
+```text
+• Travelled through Central America and climbed several volcanoes.
+• Learned to ride a motorcycle, then rode it across North America a few days after buying it.
 ```
 
 ### Senior Software Engineer, Machine Learning — The Suite
@@ -32,7 +84,6 @@ Description (402/2000):
 - **Location type:** Remote
 - **Start date:** May 2024
 - **End date:** Aug 2025
-- **Skills:** Machine Learning, Recommender Systems, XGBoost, MLflow, Amazon SageMaker
 
 Description (362/2000):
 
@@ -48,7 +99,6 @@ Description (362/2000):
 - **Location type:** Remote
 - **Start date:** May 2022
 - **End date:** May 2024
-- **Skills:** Python (Programming Language), Django, GraphQL, REST APIs, Technical Leadership
 
 Description (488/2000):
 
@@ -66,7 +116,6 @@ Description (488/2000):
 - **Location type:** Remote
 - **Start date:** Mar 2022
 - **End date:** Apr 2022
-- **Skills:** JavaScript, Game Development
 
 Description (115/2000):
 
@@ -82,7 +131,6 @@ _Profile → Add profile section → Add projects._
 
 - **Project name:** Sophistry
 - **Link (add under Media):** https://sophistry.dev
-- **Skills:** TypeScript, HTML5 Canvas, SolidJS, React.js, Data Visualization
 
 Description (211/2000):
 
@@ -96,7 +144,6 @@ Description (211/2000):
 
 - **Project name:** cf-rs
 - **Link (add under Media):** https://github.com/BenjaminLucier/cf-rs
-- **Skills:** Rust (Programming Language), Cloudflare, API Development, Open-Source Software, Continuous Integration (CI)
 
 Description (246/2000):
 
@@ -110,7 +157,6 @@ Description (246/2000):
 
 - **Project name:** anzan
 - **Link (add under Media):** https://github.com/BenjaminLucier/anzan
-- **Skills:** Rust (Programming Language), Terminal User Interface (TUI), Command-Line Interface (CLI), Open-Source Software, Homebrew
 
 Description (117/2000):
 
@@ -123,39 +169,10 @@ Description (117/2000):
 
 _Profile → Add profile section → Add projects._
 
-### Incredible
-
-- **Project name:** Incredible
-- **Link (add under Media):** https://useincredible.com
-- **Skills:** Rust (Programming Language), PostgreSQL, SolidJS, WebGPU, WebAssembly
-
-Description (239/2000):
-
-```text
-• Founder & Lead Engineer — Public Alpha.
-• Personal "everything app" unifying notes, goals, fitness, flashcards, habits, bases, files, canvas and AI chat.
-• Rust (axum, Postgres) API, SolidJS frontend and a WebGPU graph view in Rust/wasm.
-```
-
-### PXStudio
-
-- **Project name:** PXStudio
-- **Link (add under Media):** https://pxstud.io
-- **Skills:** Rust (Programming Language), Tauri, Lua, WebAssembly, SolidJS
-
-Description (221/2000):
-
-```text
-• Founder & Lead Engineer.
-• Pixel art and animation editor for web and desktop (Tauri), with premium cloud sync (Rust, SolidJS, TypeGPU).
-• Sandboxed Lua 5.4 (WASM) scripting engine for user-written tools and automation.
-```
-
 ### Travel Nexus
 
 - **Project name:** Travel Nexus
 - **Link (add under Media):** https://travel.nexus
-- **Skills:** Rust (Programming Language), PostGIS, OpenStreetMap, Data Pipelines, Stripe
 
 Description (296/2000):
 
@@ -169,7 +186,6 @@ Description (296/2000):
 
 - **Project name:** Portfolio
 - **Link (add under Media):** https://benjaminlucier.com
-- **Skills:** SolidJS, TypeScript, Vite, Cloudflare Workers, Tailwind CSS
 
 Description (91/2000):
 

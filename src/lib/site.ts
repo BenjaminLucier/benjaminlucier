@@ -5,7 +5,7 @@ export const site = {
 	/** Meta/og description fallback for pages without one; 120–125 chars keeps
 	 * it inside both the SERP (120–160) and social-preview (~125) windows. */
 	seoDescription:
-		"Benjamin Lucier: fullstack engineer and founder building agentic, AI-native products, plus the odd algorithm visualizer.",
+		"Benjamin Lucier, fullstack ML engineer: products, open source, CV and stack, from Rust and Python backends to TypeScript UIs.",
 	url: "https://benjaminlucier.com",
 	/** Substack publication; the signup card links to its subscribe page.
 	 * Swap for a custom domain (e.g. a benjaminlucier.com subdomain) once it's set up. */

@@ -15,9 +15,11 @@
 }
 
 // row 1: title + right-aligned aside; row 2: italic sub + right-aligned aside; then bullets
-// `skills` (LinkedIn allows 5) only goes to cv/linkedin.md, not the PDF.
-#let entry(title, aside, sub, aside2, skills: (), ..bullets) = block(breakable: false, above: 0.95em, below: 0em)[
-  #metadata((kind: "entry", title: title, aside: aside, sub: sub, aside2: aside2, bullets: bullets.pos(), skills: skills)) <cv>
+// `linkedin` only affects cv/linkedin.md, not the PDF: `false` leaves the entry out,
+// and a dictionary lists it under LinkedIn Experience instead, as
+// (title: ..., start: ..., end: ...), with the entry's title as the company.
+#let entry(title, aside, sub, aside2, linkedin: true, ..bullets) = block(breakable: false, above: 0.95em, below: 0em)[
+  #metadata((kind: "entry", title: title, aside: aside, sub: sub, aside2: aside2, bullets: bullets.pos(), linkedin: linkedin)) <cv>
   #grid(
     columns: (1fr, auto),
     strong(title), aside,
@@ -29,6 +31,11 @@
     )
   }
   #if bullets.pos().len() > 0 { list(..bullets.pos()) }
+]
+
+// A LinkedIn career break: metadata only, so it goes to cv/linkedin.md but not the PDF.
+#let career-break(type, start, end, ..highlights) = [
+  #metadata((kind: "career-break", type: type, start: start, end: end, highlights: highlights.pos())) <cv>
 ]
 
 // ---------- document ----------
@@ -69,6 +76,13 @@
 ]
 
 #section("Work Experience")[
+  #career-break(
+    "Travel",
+    "Aug 2025",
+    "Oct 2026",
+    [Travelled through Central America and climbed several volcanoes.],
+    [Learned to ride a motorcycle, then rode it across North America a few days after buying it.],
+  )
   #entry(
     "Lead AI Application Engineer",
     "Nov 2025 — Apr 2026",
@@ -77,7 +91,8 @@
     [Engaged as head engineer to build an AI-native legal web app, collaborating directly with stakeholders.],
     [Built an agentic legal assistant using LangGraph & pgvector, agentic RAG with ReAct tool-calling.],
     [Architected 0→1 cloud infrastructure: multi-tenant AWS infra (3-tier VPC, ECS, RDS, IAM) via Terraform IaC, GHA CI/CD automated testing & deploys, serving a FastAPI backend and SolidJS frontend.],
-    skills: ("Large Language Models (LLM)", "LangGraph", "Retrieval-Augmented Generation (RAG)", "Amazon Web Services (AWS)", "Terraform"),
+    // A contract project that has since shut down; on the CV, but not on LinkedIn.
+    linkedin: false,
   )
   #entry(
     "Senior Software Engineer, Machine Learning",
@@ -86,7 +101,6 @@
     "Remote",
     [Pitched, built, and deployed an end-to-end ML recommendation pipeline (XGBoost, Scikit-Learn, MLflow, SageMaker) processing 10m+ annual analytics events.],
     [Increased email CTR by 22%, feed engagement by 17%, and peer connections by 36% compared to heuristic baselines, before interviewing, hiring and managing a turnkey handoff to permanent engineering owners.],
-    skills: ("Machine Learning", "Recommender Systems", "XGBoost", "MLflow", "Amazon SageMaker"),
   )
   #entry(
     "Senior Software Engineer",
@@ -97,7 +111,6 @@
     [Managed core GraphQL/REST API services and Chargebee billing infrastructure supporting >\$10m ARR.],
     [Led sensitive user permission system overhaul, engineering excellence initiative, billing migrations and codebase refactors, pushing 1000s of annual git commits and reviews (pre coding agents).],
     [Interviewed and evaluated candidates, helping scale the engineering team 5x.],
-    skills: ("Python (Programming Language)", "Django", "GraphQL", "REST APIs", "Technical Leadership"),
   )
   #entry(
     "Software Engineering Intern",
@@ -105,7 +118,6 @@
     "Modd.io",
     "Remote",
     [Worked on a social browser gaming engine and platform, then left after a month for a full-time role at The Suite.],
-    skills: ("JavaScript", "Game Development"),
   )
 ]
 
@@ -117,7 +129,6 @@
     "",
     [Open-source, Manim-inspired library for controllable maths animations and charts on the web.],
     [Pure TypeScript Canvas2D core with code-generated SolidJS and React bindings, LaTeX and 3D.],
-    skills: ("TypeScript", "HTML5 Canvas", "SolidJS", "React.js", "Data Visualization"),
   )
   #entry(
     "cf-rs",
@@ -126,7 +137,6 @@
     "",
     [Published `cf-images`, an async Rust client for Cloudflare Images, on #link("https://crates.io/crates/cf-images")[crates.io] with CI and automated releases.],
     [Published `cf-stream`, an async Rust client for Cloudflare Stream, on #link("https://crates.io/crates/cf-stream")[crates.io] with CI and automated releases.],
-    skills: ("Rust (Programming Language)", "Cloudflare", "API Development", "Open-Source Software", "Continuous Integration (CI)"),
   )
   #entry(
     "anzan",
@@ -134,7 +144,6 @@
     "Author & Maintainer",
     "",
     [Rust TUI for mental math practice with adaptive drills, published on #link("https://crates.io/crates/anzan")[crates.io] and Homebrew.],
-    skills: ("Rust (Programming Language)", "Terminal User Interface (TUI)", "Command-Line Interface (CLI)", "Open-Source Software", "Homebrew"),
   )
 ]
 
@@ -146,7 +155,7 @@
     "",
     [Personal "everything app" unifying notes, goals, fitness, flashcards, habits, bases, files, canvas and AI chat.],
     [Rust (axum, Postgres) API, SolidJS frontend and a WebGPU graph view in Rust/wasm.],
-    skills: ("Rust (Programming Language)", "PostgreSQL", "SolidJS", "WebGPU", "WebAssembly"),
+    linkedin: (title: "Founder", start: "Oct 2026", end: "Present"),
   )
   #entry(
     "PXStudio",
@@ -155,7 +164,7 @@
     "",
     [Pixel art and animation editor for web and desktop (Tauri), with premium cloud sync (Rust, SolidJS, TypeGPU).],
     [Sandboxed Lua 5.4 (WASM) scripting engine for user-written tools and automation.],
-    skills: ("Rust (Programming Language)", "Tauri", "Lua", "WebAssembly", "SolidJS"),
+    linkedin: (title: "Founder", start: "Oct 2026", end: "Present"),
   )
   #entry(
     "Travel Nexus",
@@ -164,7 +173,6 @@
     "",
     [Map-first trip planner with shareable, forkable trips and place collections, per-place climate data and Stripe billing.],
     [Built a Rust data pipeline over \~1 TB of OpenStreetMap, Wikidata, Wikipedia and CHELSA climate data to curate places into PostGIS.],
-    skills: ("Rust (Programming Language)", "PostGIS", "OpenStreetMap", "Data Pipelines", "Stripe"),
   )
   #entry(
     "Portfolio",
@@ -172,7 +180,6 @@
     "",
     "",
     [Portfolio and showcase built with SolidJS 2.0, TypeScript and Vite on Cloudflare Workers.],
-    skills: ("SolidJS", "TypeScript", "Vite", "Cloudflare Workers", "Tailwind CSS"),
   )
 ]
 

@@ -1,16 +1,22 @@
 // Writes cv/linkedin.md: the CV's work experience, open source and projects,
 // laid out as LinkedIn's profile form fields for copy-pasting by hand.
-// Reads the `metadata(...) <cv>` tags in cv/cv.typ through `typst eval`.
+// Reads the `metadata(...) <cv>` tags in cv/cv.typ through `typst eval`, and
+// the About text from src/lib/about.ts, which the home page also renders.
 // Usage: node scripts/linkedin.ts
 
 import { execFileSync } from "node:child_process";
 import { writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
+import { about, headline, plain } from "../src/lib/about.ts";
 
 const SOURCE = "cv/cv.typ";
 const OUT = "cv/linkedin.md";
 /** LinkedIn's limit on Experience and Project descriptions. */
 const DESCRIPTION_LIMIT = 2000;
+/** LinkedIn's limit on the headline. */
+const HEADLINE_LIMIT = 220;
+/** LinkedIn's limit on the About section. */
+const ABOUT_LIMIT = 2600;
 
 /** Typst content as `typst eval` serializes it. */
 type Content =
@@ -33,8 +39,36 @@ type Tag =
 			sub: Content;
 			aside2: Content;
 			bullets: Content[];
-			skills: string[];
+			/** False leaves the entry out; a Job lists it under Experience. */
+			linkedin: boolean | Job;
+	  }
+	| {
+			kind: "career-break";
+			type: string;
+			start: string;
+			end: string;
+			highlights: Content[];
 	  };
+
+type Entry = Extract<Tag, { kind: "entry" }>;
+
+/** A CV project listed as a LinkedIn position, with the project as the company. */
+interface Job {
+	title: string;
+	start: string;
+	end: string;
+}
+
+/** The fields of a LinkedIn position. */
+interface Position {
+	title: string;
+	company: string;
+	location: string;
+	start: string;
+	end: string;
+	url?: string | undefined;
+	bullets: string[];
+}
 
 /** Flattens content to plain text, since LinkedIn fields take no formatting. */
 function text(c: Content): string {
@@ -83,51 +117,98 @@ function describe(lines: string[]): string {
 	return field(`Description${note}`, body);
 }
 
-/** LinkedIn allows 5 skills per position or project. */
-const SKILL_LIMIT = 5;
-
-function skills(e: Extract<Tag, { kind: "entry" }>): string {
-	if (e.skills.length === 0) return "";
-	const over =
-		e.skills.length > SKILL_LIMIT
-			? ` (${e.skills.length}/${SKILL_LIMIT}, over the limit)`
-			: "";
-	return `- **Skills${over}:** ${e.skills.join(", ")}`;
-}
-
-function experience(e: Extract<Tag, { kind: "entry" }>): string {
-	const [start, end] = text(e.aside)
-		.split(/\s*[—–-]\s*/)
-		.map((s) => s.trim());
-	const location = text(e.aside2);
+function position(p: Position): string {
 	const out = [
-		`### ${text(e.title)} — ${text(e.sub)}\n`,
-		`- **Title:** ${text(e.title)}`,
-		`- **Company:** ${text(e.sub)}`,
-		location === "Remote"
-			? "- **Location type:** Remote"
-			: `- **Location:** ${location}`,
-		`- **Start date:** ${start}`,
-		`- **End date:** ${end && end !== "Present" ? end : "(currently working here)"}`,
-		skills(e),
-		"",
-		describe(e.bullets.map(text)),
+		`### ${p.title} — ${p.company}\n`,
+		`- **Title:** ${p.title}`,
+		`- **Company:** ${p.company}`,
 	];
+	if (p.location === "Remote") out.push("- **Location type:** Remote");
+	else if (p.location) out.push(`- **Location:** ${p.location}`);
+	out.push(
+		`- **Start date:** ${p.start}`,
+		`- **End date:** ${p.end !== "Present" ? p.end : "(currently working here)"}`,
+	);
+	if (p.url) out.push(`- **Link (add under Media):** ${p.url}`);
+	out.push("", describe(p.bullets));
 	return out.join("\n");
 }
 
-function project(e: Extract<Tag, { kind: "entry" }>): string {
+function experience(e: Entry): string {
+	const [start = "", end = "Present"] = text(e.aside)
+		.split(/\s*[—–-]\s*/)
+		.map((s) => s.trim());
+	return position({
+		title: text(e.title),
+		company: text(e.sub),
+		location: text(e.aside2),
+		start,
+		end,
+		bullets: e.bullets.map(text),
+	});
+}
+
+/** A CV project as a LinkedIn position; its role line becomes the title. */
+function job(e: Entry, j: Job): string {
+	return position({
+		...j,
+		company: text(e.title),
+		location: "",
+		url: href(e.aside),
+		bullets: e.bullets.map(text),
+	});
+}
+
+function project(e: Entry): string {
 	const role = text(e.sub);
 	const url = href(e.aside);
 	const out = [
 		`### ${text(e.title)}\n`,
 		`- **Project name:** ${text(e.title)}`,
 		url ? `- **Link (add under Media):** ${url}` : "",
-		skills(e),
 		"",
 		describe([...(role ? [`${role}.`] : []), ...e.bullets.map(text)]),
 	];
 	return out.filter((l, i) => l !== "" || i === out.length - 2).join("\n");
+}
+
+function headlineSection(): string {
+	const note =
+		headline.length > HEADLINE_LIMIT
+			? `${headline.length}/${HEADLINE_LIMIT}, over the limit`
+			: `${headline.length}/${HEADLINE_LIMIT}`;
+	return [
+		"## Headline\n",
+		"_Profile → edit intro (pencil by your name)._\n",
+		field(`Headline (${note})`, headline),
+	].join("\n");
+}
+
+function aboutSection(): string {
+	const body = about.map(plain).join("\n\n");
+	const note =
+		body.length > ABOUT_LIMIT
+			? `${body.length}/${ABOUT_LIMIT}, over the limit`
+			: `${body.length}/${ABOUT_LIMIT}`;
+	return [
+		"## About\n",
+		"_Profile → About → edit (pencil)._\n",
+		field(`About (${note})`, body),
+	].join("\n");
+}
+
+function careerBreak(b: Extract<Tag, { kind: "career-break" }>): string {
+	const body = description(b.highlights.map(text));
+	const out = [
+		"### Career break\n",
+		"_Profile → Add profile section → Add career break._\n",
+		`- **Type:** ${b.type}`,
+		`- **Start date:** ${b.start}`,
+		`- **End date:** ${b.end}`,
+		"",
+		field(`Description (${body.length} characters)`, body),
+	];
+	return out.join("\n");
 }
 
 const SECTIONS: Record<
@@ -159,19 +240,35 @@ export function linkedin(root = process.cwd()): string {
 	);
 	const tags = JSON.parse(json) as Tag[];
 
+	// Rendered entries per LinkedIn heading, in CV order. Projects marked as
+	// jobs go to the top of Experience, since they're the most recent.
+	const sections = new Map<string, { note: string; items: string[] }>();
+	const jobs: string[] = [];
+	let section: (typeof SECTIONS)[string] | undefined;
+	for (const tag of tags) {
+		if (tag.kind === "section") {
+			section = SECTIONS[tag.title];
+			if (section && !sections.has(section.heading))
+				sections.set(section.heading, { note: section.note, items: [] });
+		} else if (tag.kind === "career-break") {
+			sections.get(section?.heading ?? "")?.items.push(careerBreak(tag));
+		} else if (typeof tag.linkedin === "object") {
+			jobs.push(job(tag, tag.linkedin));
+		} else if (section && tag.linkedin) {
+			sections.get(section.heading)?.items.push(section.render(tag));
+		}
+	}
+	sections.get("Experience")?.items.unshift(...jobs);
+
 	const parts = [
 		"# LinkedIn copy\n",
 		`<!-- Generated from ${SOURCE} by scripts/linkedin.ts; don't edit by hand. -->\n`,
 		"Fields for the LinkedIn profile forms, newest first, in the same order as the CV.\n",
 	];
-	let section: (typeof SECTIONS)[string] | undefined;
-	for (const tag of tags) {
-		if (tag.kind === "section") {
-			section = SECTIONS[tag.title];
-			if (section) parts.push(`## ${section.heading}\n`, `_${section.note}_\n`);
-		} else if (section) {
-			parts.push(section.render(tag));
-		}
+	parts.push(headlineSection(), aboutSection());
+	for (const [heading, { note, items }] of sections) {
+		if (items.length > 0)
+			parts.push(`## ${heading}\n`, `_${note}_\n`, ...items);
 	}
 	const md = `${parts.join("\n").trimEnd()}\n`;
 	writeFileSync(`${root}/${OUT}`, md);

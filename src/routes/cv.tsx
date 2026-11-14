@@ -96,8 +96,8 @@ export default function CV() {
 	return (
 		<article class="mx-auto max-w-[48rem]">
 			<PageTitle
-				seoTitle="Benjamin Lucier's CV — Staff / Senior Fullstack Engineer"
-				description="CV of Benjamin Lucier, staff/senior fullstack engineer open to agentic and ML application roles — fulltime, remote, Americas."
+				seoTitle="Benjamin Lucier's CV — Fullstack ML Engineer"
+				description="CV of Benjamin Lucier, fullstack ML engineer: work experience in applied ML and core infrastructure, education and projects."
 			/>
 			<div class="mb-10 flex items-baseline justify-between gap-4">
 				<h1 class="font-sans text-4xl font-bold tracking-tight text-ink">
