@@ -35,6 +35,7 @@
 		"check": "biome check .",
 		"fix": "biome check --write .",
 		"typecheck": "tsc",
+		"linkedin": "node scripts/linkedin.ts",
 		"thumbnails": "node scripts/thumbnails.ts",
 		"check:thumbnails": "node scripts/check-thumbnails.ts",
 		"check:meta": "node scripts/check-meta.ts"

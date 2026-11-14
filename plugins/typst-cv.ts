@@ -3,6 +3,7 @@ import { mkdir } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { promisify } from "node:util";
 import type { Plugin } from "vite";
+import { linkedin } from "../scripts/linkedin.ts";
 
 const run = promisify(execFile);
 
@@ -14,7 +15,7 @@ export interface TypstCvOptions {
 }
 
 /**
- * Compiles the typst CV to a PDF.
+ * Compiles the typst CV to a PDF, and writes its LinkedIn copy (cv/linkedin.md).
  * Runs once at startup (dev and build) and again whenever a .typ file changes.
  * If typst isn't installed (e.g. CI), it warns and keeps the committed outputs.
  */
@@ -33,6 +34,7 @@ export function typstCv(options: TypstCvOptions = {}): Plugin {
 			await mkdir(dirname(pdfOut), { recursive: true });
 			await run("typst", ["compile", "--root", root, src, pdfOut]);
 			log(`compiled ${source} -> ${pdf}`);
+			log(`wrote ${linkedin(root)}`);
 		} catch (err) {
 			const e = err as NodeJS.ErrnoException & { stderr?: string };
 			if (e.code === "ENOENT") {
