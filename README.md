@@ -37,6 +37,9 @@ means agentic functionality and machine learning in production.
   Cloudflare's media APIs, published as `cf-images` and `cf-stream`.
 - [**anzan**](https://github.com/BenjaminLucier/anzan): a terminal trainer for
   mental math. `brew install BenjaminLucier/tap/anzan`
+- [**Gauntlet**](https://github.com/BenjaminLucier/gauntlet): 128 Rust
+  practice problems in a terminal trainer, from knowing Rust to being fluent
+  in it. `brew install BenjaminLucier/tap/gauntlet`
 
 ---
 

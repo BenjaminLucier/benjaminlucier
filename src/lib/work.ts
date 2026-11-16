@@ -83,6 +83,16 @@ export const work: Work[] = [
 		thumbnail: { scene: "glyph", options: { text: "暗算" } },
 	},
 	{
+		slug: "gauntlet",
+		title: "Gauntlet",
+		summary:
+			"128 Rust practice problems in a terminal trainer that tests your code on save and times you against reference solutions.",
+		date: "2026-11-16",
+		href: "https://github.com/BenjaminLucier/gauntlet",
+		openSource: true,
+		thumbnail: { scene: "glyph", options: { text: "128" } },
+	},
+	{
 		slug: "travel-nexus",
 		title: "Travel Nexus",
 		summary:
