@@ -17,7 +17,7 @@ Benjamin Lucier builds applications end to end, from the database and backend to
 - [Sophistry](https://sophistry.dev/): Manim-inspired, live maths animations and charts for the web, in TypeScript with SolidJS and React bindings.
 - [cf-images](https://github.com/BenjaminLucier/cf-rs/tree/main/crates/cf-images): An async Rust client for Cloudflare Images, published on crates.io as part of cf-rs.
 - [cf-stream](https://github.com/BenjaminLucier/cf-rs/tree/main/crates/cf-stream): An async Rust client for Cloudflare Stream, published on crates.io as part of cf-rs.
-- [anzan](https://github.com/BenjaminLucier/anzan): A terminal trainer for mental math in Rust: timed drills, a stats dashboard and modes that find your weak spots.
+- [Anzan](https://github.com/BenjaminLucier/anzan): A terminal trainer for mental math in Rust: timed drills, a stats dashboard and modes that find your weak spots.
 - [Gauntlet](https://github.com/BenjaminLucier/gauntlet): 128 Rust practice problems in a terminal trainer that tests your code on save and times you against reference solutions.
 - [Travel Nexus](https://travel.nexus/): A map-first trip planner with shareable trips and places curated from the whole OpenStreetMap planet.
 - [Pathfinding](https://benjaminlucier.com/pathfinding): A visualizer that races A*, Dijkstra, BFS and DFS on the same maze, drawn both as a grid and as a graph.
