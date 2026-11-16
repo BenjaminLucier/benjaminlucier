@@ -74,7 +74,7 @@ export const work: Work[] = [
 	},
 	{
 		slug: "anzan",
-		title: "anzan",
+		title: "Anzan",
 		summary:
 			"A terminal trainer for mental math in Rust: timed drills, a stats dashboard and modes that find your weak spots.",
 		date: "2026-11-13",
