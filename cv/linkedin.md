@@ -165,6 +165,18 @@ Description (117/2000):
 • Rust TUI for mental math practice with adaptive drills, published on crates.io and Homebrew.
 ```
 
+### Gauntlet
+
+- **Project name:** Gauntlet
+- **Link (add under Media):** https://github.com/BenjaminLucier/gauntlet
+
+Description (175/2000):
+
+```text
+• Author & Maintainer.
+• Rust TUI with 128 practice problems that tests solutions on save and benchmarks them against reference solutions, published on crates.io and Homebrew.
+```
+
 ## Projects
 
 _Profile → Add profile section → Add projects._

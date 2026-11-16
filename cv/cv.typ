@@ -145,6 +145,13 @@
     "",
     [Rust TUI for mental math practice with adaptive drills, published on #link("https://crates.io/crates/anzan")[crates.io] and Homebrew.],
   )
+  #entry(
+    "Gauntlet",
+    link("https://github.com/BenjaminLucier/gauntlet")[github.com/BenjaminLucier/gauntlet],
+    "Author & Maintainer",
+    "",
+    [Rust TUI with 128 practice problems that tests solutions on save and benchmarks them against reference solutions, published on #link("https://crates.io/crates/gauntlet")[crates.io] and Homebrew.],
+  )
 ]
 
 #section("Projects")[
