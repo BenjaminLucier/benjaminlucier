@@ -1,9 +1,9 @@
 import { Globe, Package } from "lucide";
-import { siGithub, siNpm, siRust, siTypescript } from "simple-icons";
+import { siGithub, siNpm } from "simple-icons";
 import { For, Show } from "solid-js";
 import Card from "~/components/Card";
 import Icon from "~/components/Icon";
-import type { Language, Work, WorkLinks } from "~/lib/work";
+import type { Work, WorkLinks } from "~/lib/work";
 
 /** A filled simple-icons glyph, the same way the header draws its social icons. */
 function Glyph(props: { path: string; size: number }) {
@@ -59,11 +59,6 @@ const linkIcons: {
 	},
 ];
 
-const languages: Record<Language, { label: string; path: string }> = {
-	rust: { label: "Rust", path: siRust.path },
-	typescript: { label: "TypeScript", path: siTypescript.path },
-};
-
 export default function WorkCard(props: { work: Work }) {
 	const links = () => linkIcons.filter((l) => props.work.links[l.key]);
 	return (
@@ -104,18 +99,6 @@ export default function WorkCard(props: { work: Work }) {
 						);
 					}}
 				</For>
-			}
-			subtitle={
-				<ul class="mt-1 flex items-center gap-2.5 text-muted">
-					<For each={props.work.languages}>
-						{(lang) => (
-							<li title={languages[lang].label} class="inline-flex">
-								<Glyph path={languages[lang].path} size={15} />
-								<span class="sr-only">{languages[lang].label}</span>
-							</li>
-						)}
-					</For>
-				</ul>
 			}
 			title={props.work.title}
 			summary={props.work.summary}

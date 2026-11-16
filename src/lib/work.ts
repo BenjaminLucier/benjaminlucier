@@ -1,7 +1,5 @@
 import type { Thumbnail } from "./thumbnails";
 
-export type Language = "rust" | "typescript";
-
 export interface WorkLinks {
 	/** The live site or page. */
 	site?: string;
@@ -23,8 +21,6 @@ export interface Work {
 	href: string;
 	/** Shown as icon links in the card's corner, in this order; `href` stays the card's own link. */
 	links: WorkLinks;
-	/** Shown as icons under the summary. */
-	languages: Language[];
 	/** Not finished yet: marked with an α next to the title. */
 	alpha?: boolean;
 	/** Also shown in the Featured section on the home page, in this order. */
@@ -42,7 +38,6 @@ export const work: Work[] = [
 		date: "2026-10-13",
 		href: "https://useincredible.com",
 		links: { site: "https://useincredible.com" },
-		languages: ["rust", "typescript"],
 		alpha: true,
 		featured: true,
 		thumbnail: { scene: "generative", options: { style: "flow" } },
@@ -55,7 +50,6 @@ export const work: Work[] = [
 		date: "2026-10-19",
 		href: "https://pxstud.io",
 		links: { site: "https://pxstud.io" },
-		languages: ["rust", "typescript"],
 		featured: true,
 		thumbnail: { scene: "generative", options: { style: "dither" } },
 	},
@@ -71,7 +65,6 @@ export const work: Work[] = [
 			repo: "https://github.com/BenjaminLucier/sophistry",
 			npm: "https://www.npmjs.com/org/sophistry",
 		},
-		languages: ["typescript"],
 		featured: true,
 		thumbnail: { scene: "epicycle" },
 	},
@@ -86,7 +79,6 @@ export const work: Work[] = [
 			repo: "https://github.com/BenjaminLucier/cf-rs/tree/main/crates/cf-images",
 			crate: "https://crates.io/crates/cf-images",
 		},
-		languages: ["rust"],
 		thumbnail: { scene: "generative", options: { style: "voronoi" } },
 	},
 	{
@@ -100,7 +92,6 @@ export const work: Work[] = [
 			repo: "https://github.com/BenjaminLucier/cf-rs/tree/main/crates/cf-stream",
 			crate: "https://crates.io/crates/cf-stream",
 		},
-		languages: ["rust"],
 		thumbnail: { scene: "generative", options: { style: "ridgelines" } },
 	},
 	{
@@ -114,7 +105,6 @@ export const work: Work[] = [
 			repo: "https://github.com/BenjaminLucier/anzan",
 			crate: "https://crates.io/crates/anzan",
 		},
-		languages: ["rust"],
 		thumbnail: { scene: "glyph", options: { text: "暗算" } },
 	},
 	{
@@ -128,7 +118,6 @@ export const work: Work[] = [
 			repo: "https://github.com/BenjaminLucier/gauntlet",
 			crate: "https://crates.io/crates/gauntlet",
 		},
-		languages: ["rust"],
 		thumbnail: { scene: "glyph", options: { text: "128" } },
 	},
 	{
@@ -139,7 +128,6 @@ export const work: Work[] = [
 		date: "2026-10-01",
 		href: "https://travel.nexus",
 		links: { site: "https://travel.nexus" },
-		languages: ["rust", "typescript"],
 		alpha: true,
 		thumbnail: { scene: "map" },
 	},
@@ -151,7 +139,6 @@ export const work: Work[] = [
 		date: "2026-11-13",
 		href: "/pathfinding",
 		links: { site: "/pathfinding" },
-		languages: ["typescript"],
 		thumbnail: {
 			scene: "pathfinding",
 			options: {
@@ -174,7 +161,6 @@ export const work: Work[] = [
 			site: "https://benjaminlucier.com",
 			repo: "https://github.com/BenjaminLucier/benjaminlucier",
 		},
-		languages: ["typescript"],
 		thumbnail: { scene: "circumpunct" },
 	},
 ];
