@@ -109,6 +109,7 @@ export const work: Work[] = [
 			"A visualizer that races A*, Dijkstra, BFS and DFS on the same maze, drawn both as a grid and as a graph.",
 		date: "2026-11-13",
 		href: "/pathfinding",
+		status: "Live",
 		thumbnail: {
 			scene: "pathfinding",
 			options: {
