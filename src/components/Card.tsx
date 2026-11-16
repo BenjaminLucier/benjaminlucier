@@ -27,8 +27,8 @@ export default function Card(props: {
 	badge?: JSX.Element;
 	/** Links of their own, at the end of the title row. */
 	actions?: JSX.Element;
-	/** Shown under the summary. */
-	footer?: JSX.Element;
+	/** A line just under the title, before the summary. */
+	subtitle?: JSX.Element;
 	title: string;
 	summary: string;
 	lead?: boolean | undefined;
@@ -83,8 +83,8 @@ export default function Card(props: {
 					</div>
 				</Show>
 			</div>
+			{props.subtitle}
 			<p class="mt-2 flex-1 text-base text-muted">{props.summary}</p>
-			{props.footer}
 		</article>
 	);
 }

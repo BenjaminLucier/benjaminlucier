@@ -105,8 +105,8 @@ export default function WorkCard(props: { work: Work }) {
 					}}
 				</For>
 			}
-			footer={
-				<ul class="mt-3 flex items-center gap-2.5 text-muted">
+			subtitle={
+				<ul class="mt-1 flex items-center gap-2.5 text-muted">
 					<For each={props.work.languages}>
 						{(lang) => (
 							<li title={languages[lang].label} class="inline-flex">
