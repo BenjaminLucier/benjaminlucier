@@ -35,11 +35,10 @@ means agentic functionality and machine learning in production.
   bindings.
 - [**cf-rs**](https://github.com/BenjaminLucier/cf-rs): async Rust clients for
   Cloudflare's media APIs, published as `cf-images` and `cf-stream`.
-- [**anzan**](https://github.com/BenjaminLucier/anzan): a terminal trainer for
+- [**Anzan**](https://github.com/BenjaminLucier/anzan): a terminal trainer for
   mental math. `brew install BenjaminLucier/tap/anzan`
-- [**Gauntlet**](https://github.com/BenjaminLucier/gauntlet): 128 Rust
-  practice problems in a terminal trainer, from knowing Rust to being fluent
-  in it. `brew install BenjaminLucier/tap/gauntlet`
+- [**Gauntlet**](https://github.com/BenjaminLucier/gauntlet): a terminal trainer
+  for Rust. `brew install BenjaminLucier/tap/gauntlet`
 
 ---
 
