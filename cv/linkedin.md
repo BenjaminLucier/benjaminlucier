@@ -153,9 +153,9 @@ Description (246/2000):
 • Published cf-stream, an async Rust client for Cloudflare Stream, on crates.io with CI and automated releases.
 ```
 
-### anzan
+### Anzan
 
-- **Project name:** anzan
+- **Project name:** Anzan
 - **Link (add under Media):** https://github.com/BenjaminLucier/anzan
 
 Description (117/2000):
@@ -170,11 +170,11 @@ Description (117/2000):
 - **Project name:** Gauntlet
 - **Link (add under Media):** https://github.com/BenjaminLucier/gauntlet
 
-Description (175/2000):
+Description (113/2000):
 
 ```text
 • Author & Maintainer.
-• Rust TUI with 128 practice problems that tests solutions on save and benchmarks them against reference solutions, published on crates.io and Homebrew.
+• Rust TUI with 128 practice problems tested on save, published on crates.io and Homebrew.
 ```
 
 ## Projects

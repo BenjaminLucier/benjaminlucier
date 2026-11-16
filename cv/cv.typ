@@ -139,7 +139,7 @@
     [Published `cf-stream`, an async Rust client for Cloudflare Stream, on #link("https://crates.io/crates/cf-stream")[crates.io] with CI and automated releases.],
   )
   #entry(
-    "anzan",
+    "Anzan",
     link("https://github.com/BenjaminLucier/anzan")[github.com/BenjaminLucier/anzan],
     "Author & Maintainer",
     "",
@@ -150,7 +150,7 @@
     link("https://github.com/BenjaminLucier/gauntlet")[github.com/BenjaminLucier/gauntlet],
     "Author & Maintainer",
     "",
-    [Rust TUI with 128 practice problems that tests solutions on save and benchmarks them against reference solutions, published on #link("https://crates.io/crates/gauntlet")[crates.io] and Homebrew.],
+    [Rust TUI with 128 practice problems tested on save, published on #link("https://crates.io/crates/gauntlet")[crates.io] and Homebrew.],
   )
 ]
 
