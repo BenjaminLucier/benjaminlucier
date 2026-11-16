@@ -50,10 +50,7 @@ export const work: Work[] = [
 		href: "https://sophistry.dev",
 		openSource: true,
 		featured: true,
-		thumbnail: {
-			scene: "generative",
-			options: { style: "harmonograph" },
-		},
+		thumbnail: { scene: "epicycle" },
 	},
 	{
 		slug: "cf-images",
@@ -103,7 +100,7 @@ export const work: Work[] = [
 		date: "2026-10-01",
 		href: "https://travel.nexus",
 		status: "Alpha",
-		thumbnail: { scene: "generative", options: { style: "truchet" } },
+		thumbnail: { scene: "map" },
 	},
 	{
 		slug: "pathfinding",

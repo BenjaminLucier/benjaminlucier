@@ -3,6 +3,7 @@
 import type {
 	GenerativeSceneOptions,
 	GlyphSceneOptions,
+	MapSceneOptions,
 } from "~/lib/generative-art";
 import type { PathfindingSceneOptions } from "~/lib/pathfinding/scene";
 
@@ -12,6 +13,8 @@ export type SceneOptionsMap = {
 	generative: GenerativeSceneOptions;
 	circumpunct: Record<string, never>;
 	glyph: GlyphSceneOptions;
+	map: MapSceneOptions;
+	epicycle: Record<string, never>;
 };
 export type SceneName = keyof SceneOptionsMap;
 

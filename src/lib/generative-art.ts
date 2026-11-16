@@ -385,3 +385,212 @@ export function drawGlyph(
 	ctx.fillStyle = gradient;
 	ctx.fillText(text, size.width / 2, size.height / 2);
 }
+
+export type MapSceneOptions = { seed?: number };
+
+/** Fractal value noise: a few octaves of `noise`, 0 to roughly 1. */
+function fbm(rng: Rng) {
+	const octaves = [noise(rng), noise(rng), noise(rng)];
+	return (x: number, y: number) =>
+		octaves.reduce(
+			(sum, layer, i) => sum + layer(x * 2 ** i, y * 2 ** i) / 2 ** (i + 1),
+			0,
+		) / 0.875;
+}
+
+/** Contour segments of `field` at `level` over a grid, by marching squares. */
+function isolines(
+	field: (x: number, y: number) => number,
+	{ width, height }: SceneSize,
+	cell: number,
+	level: number,
+): [Point, Point][] {
+	const segments: [Point, Point][] = [];
+	const lerp = (a: Point, b: Point, va: number, vb: number): Point => {
+		const t = (level - va) / (vb - va);
+		return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+	};
+	for (let y = 0; y < height; y += cell) {
+		for (let x = 0; x < width; x += cell) {
+			const c: Point[] = [
+				[x, y],
+				[x + cell, y],
+				[x + cell, y + cell],
+				[x, y + cell],
+			];
+			const v = c.map(([px, py]) => field(px, py));
+			const crossings: Point[] = [];
+			for (let i = 0; i < 4; i++) {
+				const j = (i + 1) % 4;
+				const vi = v[i] as number;
+				const vj = v[j] as number;
+				if (vi < level !== vj < level)
+					crossings.push(lerp(c[i] as Point, c[j] as Point, vi, vj));
+			}
+			if (crossings.length >= 2)
+				segments.push([crossings[0] as Point, crossings[1] as Point]);
+			if (crossings.length === 4)
+				segments.push([crossings[2] as Point, crossings[3] as Point]);
+		}
+	}
+	return segments;
+}
+
+/**
+ * An abstract map: tinted water, topographic contours of a seeded terrain, and a
+ * dashed route between pins. The picture for Travel Nexus.
+ */
+export function drawMapScene(
+	ctx: CanvasRenderingContext2D,
+	size: SceneSize,
+	{ seed = 7 }: MapSceneOptions,
+) {
+	const palette = palettes[currentMode()];
+	const rng = mulberry32(seed);
+	const terrain = fbm(rng);
+	const scale = 0.0035;
+	const field = (x: number, y: number) => terrain(x * scale, y * scale);
+	const sea = 0.42;
+	const { width, height } = size;
+
+	ctx.fillStyle = palette.background;
+	ctx.fillRect(0, 0, width, height);
+
+	// Water: everything below sea level, filled cell by cell.
+	const cell = 6;
+	ctx.fillStyle = palette.nodes[1] as string;
+	ctx.globalAlpha = 0.16;
+	for (let y = 0; y < height; y += cell)
+		for (let x = 0; x < width; x += cell)
+			if (field(x + cell / 2, y + cell / 2) < sea)
+				ctx.fillRect(x, y, cell, cell);
+
+	// Coastline, then contour lines above it, fainter as they climb.
+	ctx.lineCap = "round";
+	const levels = [sea, 0.5, 0.56, 0.62, 0.68, 0.74];
+	levels.forEach((level, i) => {
+		ctx.strokeStyle = (i === 0 ? palette.nodes[1] : palette.nodes[2]) as string;
+		ctx.globalAlpha = i === 0 ? 0.9 : 0.55 - i * 0.06;
+		ctx.lineWidth = i === 0 ? 2.4 : 1.4;
+		ctx.beginPath();
+		for (const [a, b] of isolines(field, size, 5, level)) {
+			ctx.moveTo(a[0], a[1]);
+			ctx.lineTo(b[0], b[1]);
+		}
+		ctx.stroke();
+	});
+
+	// Pins on land, joined by a dashed route.
+	const pins: Point[] = [];
+	for (let tries = 0; pins.length < 4 && tries < 500; tries++) {
+		const p: Point = [
+			width * (0.15 + 0.7 * (pins.length / 3)) + (rng() - 0.5) * width * 0.08,
+			height * (0.25 + rng() * 0.5),
+		];
+		if (field(p[0], p[1]) > sea + 0.03) pins.push(p);
+	}
+	ctx.globalAlpha = 1;
+	ctx.strokeStyle = palette.pulse;
+	ctx.lineWidth = 3;
+	ctx.setLineDash([10, 9]);
+	ctx.beginPath();
+	pins.forEach(([x, y], i) => {
+		if (i === 0) ctx.moveTo(x, y);
+		else {
+			const [px, py] = pins[i - 1] as Point;
+			ctx.quadraticCurveTo((px + x) / 2, Math.min(py, y) - 40, x, y);
+		}
+	});
+	ctx.stroke();
+	ctx.setLineDash([]);
+	for (const [x, y] of pins) {
+		ctx.fillStyle = palette.pulse;
+		ctx.beginPath();
+		ctx.arc(x, y, 11, 0, TAU);
+		ctx.fill();
+		ctx.fillStyle = palette.background;
+		ctx.beginPath();
+		ctx.arc(x, y, 4.5, 0, TAU);
+		ctx.fill();
+	}
+}
+
+/**
+ * Sophistry's mark, after docs/scripts/make-brand.mjs in its repo: an epicycle trace
+ * (a unit circle carrying a 0.55 circle spinning four times the other way), the full
+ * curve as a ghost, 80% of it drawn, a dot at the tip, and the two circles that trace it.
+ */
+export function drawEpicycleScene(
+	ctx: CanvasRenderingContext2D,
+	size: SceneSize,
+) {
+	const palette = palettes[currentMode()];
+	const { width, height } = size;
+	const k = (height * 0.38) / 1.55;
+	const cx = width / 2;
+	const cy = height / 2;
+	const at = (t: number): Point => [
+		cx + k * (Math.cos(t) + 0.55 * Math.cos(-4 * t)),
+		cy - k * (Math.sin(t) + 0.55 * Math.sin(-4 * t)),
+	];
+	const steps = 1440;
+	const points = Array.from({ length: steps + 1 }, (_, i) =>
+		at((i / steps) * TAU),
+	);
+	// Cumulative arc length, to reveal 80% of the curve by length as the logo does.
+	const lengths = [0];
+	for (let i = 1; i < points.length; i++) {
+		const [ax, ay] = points[i - 1] as Point;
+		const [bx, by] = points[i] as Point;
+		lengths.push((lengths[i - 1] as number) + Math.hypot(bx - ax, by - ay));
+	}
+	const total = lengths[lengths.length - 1] as number;
+	const end = lengths.findIndex((l) => l >= total * 0.8);
+	const tipT = (end / steps) * TAU;
+	const [tx, ty] = points[end] as Point;
+	const stroke = (from: number, to: number) => {
+		ctx.beginPath();
+		points.slice(from, to + 1).forEach(([x, y], i) => {
+			if (i === 0) ctx.moveTo(x, y);
+			else ctx.lineTo(x, y);
+		});
+		ctx.stroke();
+	};
+
+	ctx.fillStyle = palette.background;
+	ctx.fillRect(0, 0, width, height);
+	ctx.lineJoin = "round";
+	ctx.lineCap = "round";
+
+	// The machinery: the carrier circle, the epicycle on it, and the arms.
+	const carrier: Point = [cx + k * Math.cos(tipT), cy - k * Math.sin(tipT)];
+	ctx.strokeStyle = palette.link;
+	ctx.globalAlpha = 0.5;
+	ctx.lineWidth = 1.5;
+	ctx.beginPath();
+	ctx.arc(cx, cy, k, 0, TAU);
+	ctx.moveTo(carrier[0] + 0.55 * k, carrier[1]);
+	ctx.arc(carrier[0], carrier[1], 0.55 * k, 0, TAU);
+	ctx.moveTo(cx, cy);
+	ctx.lineTo(carrier[0], carrier[1]);
+	ctx.lineTo(tx, ty);
+	ctx.stroke();
+
+	// The whole curve as a ghost, then the drawn 80%.
+	ctx.strokeStyle = palette.pulse;
+	ctx.globalAlpha = 0.28;
+	ctx.lineWidth = height * 0.012;
+	stroke(0, steps);
+	ctx.globalAlpha = 1;
+	ctx.lineWidth = height * 0.02;
+	stroke(0, end);
+
+	ctx.fillStyle = palette.pulse;
+	ctx.beginPath();
+	ctx.arc(tx, ty, height * 0.026, 0, TAU);
+	ctx.fill();
+	ctx.fillStyle = palette.background;
+	ctx.beginPath();
+	ctx.arc(tx, ty, height * 0.01, 0, TAU);
+	ctx.fill();
+}
