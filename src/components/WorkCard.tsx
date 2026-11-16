@@ -70,7 +70,7 @@ export default function WorkCard(props: { work: Work }) {
 				<Show when={props.work.alpha}>
 					<span
 						title="Alpha: early, still changing"
-						class="font-sans text-xl font-semibold leading-none text-ctp-yellow"
+						class="relative z-10 cursor-help font-sans text-xl font-semibold leading-none text-ctp-yellow"
 					>
 						<span aria-hidden="true">α</span>
 						<span class="sr-only">(alpha)</span>
