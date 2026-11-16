@@ -2,8 +2,10 @@ import type { JSX } from "@solidjs/web";
 import StillCanvas from "~/components/thumbnails/StillCanvas";
 import {
 	drawCircumpunct,
+	drawEpicycleScene,
 	drawGenerativeScene,
 	drawGlyph,
+	drawMapScene,
 } from "~/lib/generative-art";
 import { drawPathfindingScene } from "~/lib/pathfinding/scene";
 import type { SceneSize } from "~/lib/thumbnail-scene";
@@ -51,4 +53,6 @@ export const scenes: { [Name in SceneName]: Scene<Name> } = {
 	generative: still(drawGenerativeScene),
 	circumpunct: still((ctx, size) => drawCircumpunct(ctx, size)),
 	glyph: still(drawGlyph),
+	map: still(drawMapScene),
+	epicycle: still((ctx, size) => drawEpicycleScene(ctx, size)),
 };
