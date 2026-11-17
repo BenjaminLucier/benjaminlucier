@@ -1,6 +1,7 @@
 {
 	"name": "benjaminlucier",
 	"version": "1.0.0",
+	"license": "MIT",
 	"dependencies": {
 		"@solidjs/meta": "1.0.0-next.2",
 		"@solidjs/router": "2.0.0-next.34",
