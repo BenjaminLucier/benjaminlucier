@@ -36,30 +36,20 @@ _Profile → Featured → + → Add a link, then paste the description._
 
 - **Link:** https://benjaminlucier.com/portfolio
 
-Description (307 characters):
+Description (72 characters):
 
 ```text
-Products I've founded and built:
-
-• useincredible.com: a personal everything app for notes, goals, fitness, flashcards and AI chat
-• pxstud.io: a pixel art and animation editor that works offline and is scriptable in Lua
-• travel.nexus: a map-first trip planner with places curated from all of OpenStreetMap
+Products I founded and built: useincredible.com, pxstud.io, travel.nexus
 ```
 
 ### Open source
 
 - **Link:** https://github.com/BenjaminLucier
 
-Description (333 characters):
+Description (96 characters):
 
 ```text
-I maintain a handful of small open source projects that I use myself:
-
-• sophistry: live maths animations and charts for the web
-• cf-rs: async Rust clients for Cloudflare Images and Stream
-• anzan: a terminal trainer for mental math
-• gauntlet: a terminal trainer for Rust
-• maplibre-solidjs: SolidJS 2 components for MapLibre GL JS
+Open source projects I started and maintain: sophistry, cf-rs, anzan, gauntlet, maplibre-solidjs
 ```
 
 ## Experience
