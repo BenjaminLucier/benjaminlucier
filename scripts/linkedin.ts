@@ -160,7 +160,7 @@ function job(e: Entry, j: Job): string {
 		...j,
 		company: text(e.title),
 		location: "",
-		url: href(e.aside),
+		url: href(e.aside) ?? href(e.title),
 		bullets: e.bullets.map(text),
 	});
 }

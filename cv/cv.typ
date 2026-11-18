@@ -125,7 +125,7 @@
 
 #section("Open Source")[
   #entry(
-    "Sophistry",
+    "sophistry",
     link("https://sophistry.dev")[sophistry.dev],
     "Author & Maintainer",
     "",
@@ -143,7 +143,7 @@
     featured: "async Rust clients for Cloudflare Images and Stream",
   )
   #entry(
-    "Anzan",
+    "anzan",
     link("https://github.com/BenjaminLucier/anzan")[github.com/BenjaminLucier/anzan],
     "Author & Maintainer",
     "",
@@ -151,7 +151,7 @@
     featured: "a terminal trainer for mental math",
   )
   #entry(
-    "Gauntlet",
+    "gauntlet",
     link("https://github.com/BenjaminLucier/gauntlet")[github.com/BenjaminLucier/gauntlet],
     "Author & Maintainer",
     "",
@@ -171,8 +171,8 @@
 
 #section("Projects")[
   #entry(
-    "Incredible",
     link("https://useincredible.com")[useincredible.com],
+    "",
     "Founder & Lead Engineer — Public Alpha",
     "",
     [Personal "everything app" unifying notes, goals, fitness, flashcards, habits, bases, files, canvas and AI chat.],
@@ -181,8 +181,8 @@
     featured: "a personal everything app for notes, goals, fitness, flashcards and AI chat",
   )
   #entry(
-    "PXStudio",
     link("https://pxstud.io")[pxstud.io],
+    "",
     "Founder & Lead Engineer",
     "",
     [Pixel art and animation editor for web and desktop (Tauri), with premium cloud sync (Rust, SolidJS, TypeGPU).],
@@ -191,8 +191,8 @@
     featured: "a pixel art and animation editor that works offline and is scriptable in Lua",
   )
   #entry(
-    "Travel Nexus",
     link("https://travel.nexus")[travel.nexus],
+    "",
     "Founder & Lead Engineer — Public Alpha",
     "",
     [Map-first trip planner with shareable, forkable trips and place collections, per-place climate data and Stripe billing.],
@@ -200,8 +200,8 @@
     featured: "a map-first trip planner with places curated from all of OpenStreetMap",
   )
   #entry(
-    "Portfolio",
     link("https://benjaminlucier.com")[benjaminlucier.com],
+    "",
     "",
     "",
     [Portfolio and showcase built with SolidJS 2.0, TypeScript and Vite on Cloudflare Workers.],
