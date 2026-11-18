@@ -30,7 +30,25 @@ I love an adventure: I've travelled to ~30 countries, circumnavigated Vancouver 
 
 ## Featured
 
-_Profile → Featured → add a link (e.g. github.com/BenjaminLucier) and paste this as its description._
+_Profile → Featured → + → Add a link, then paste the description._
+
+### Portfolio
+
+- **Link:** https://benjaminlucier.com/portfolio
+
+Description (299 characters):
+
+```text
+Products I've founded and built:
+
+• Incredible: a personal everything app for notes, goals, fitness, flashcards and AI chat
+• PXStudio: a pixel art and animation editor that works offline and is scriptable in Lua
+• Travel Nexus: a map-first trip planner with places curated from all of OpenStreetMap
+```
+
+### Open source
+
+- **Link:** https://github.com/BenjaminLucier
 
 Description (333 characters):
 

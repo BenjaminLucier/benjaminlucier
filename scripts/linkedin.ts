@@ -1,6 +1,6 @@
 // Writes cv/linkedin.md: the CV's work experience, laid out as LinkedIn's
-// profile form fields for copy-pasting by hand, plus the open source projects
-// as one list for a Featured card's description.
+// profile form fields for copy-pasting by hand, plus the products and the
+// open source projects as lists for two Featured cards' descriptions.
 // Reads the `metadata(...) <cv>` tags in cv/cv.typ through `typst eval`, and
 // the About text from src/lib/about.ts, which the home page also renders.
 // Usage: node scripts/linkedin.ts
@@ -18,8 +18,9 @@ const DESCRIPTION_LIMIT = 2000;
 const HEADLINE_LIMIT = 220;
 /** LinkedIn's limit on the About section. */
 const ABOUT_LIMIT = 2600;
-/** The CV section whose entries make up the Featured open source list. */
+/** The CV sections whose entries make up the two Featured lists. */
 const OPEN_SOURCE = "Open Source";
+const PROJECTS = "Projects";
 
 /** Typst content as `typst eval` serializes it. */
 type Content =
@@ -44,7 +45,7 @@ type Tag =
 			bullets: Content[];
 			/** False leaves the entry out; a Job lists it under Experience. */
 			linkedin: boolean | Job;
-			/** A one-line blurb for the Featured open source list. */
+			/** A one-line blurb for a Featured list (products or open source). */
 			featured: string | null;
 	  }
 	| {
@@ -164,17 +165,42 @@ function job(e: Entry, j: Job): string {
 	});
 }
 
-/** The open source entries as one bulleted list, for a Featured card. */
-function featuredSection(entries: Entry[]): string {
+/** One Featured card: a link to add, and a bulleted list as its description. */
+function featuredCard(
+	name: string,
+	link: string,
+	intro: string,
+	entries: Entry[],
+): string {
 	const body = [
-		"I maintain a handful of small open source projects that I use myself:",
+		intro,
 		"",
 		...entries.map((e) => `• ${text(e.title)}: ${e.featured}`),
 	].join("\n");
 	return [
-		"## Featured\n",
-		"_Profile → Featured → add a link (e.g. github.com/BenjaminLucier) and paste this as its description._\n",
+		`### ${name}\n`,
+		`- **Link:** ${link}`,
+		"",
 		field(`Description (${body.length} characters)`, body),
+	].join("\n");
+}
+
+function featuredSection(products: Entry[], openSource: Entry[]): string {
+	return [
+		"## Featured\n",
+		"_Profile → Featured → + → Add a link, then paste the description._\n",
+		featuredCard(
+			"Portfolio",
+			"https://benjaminlucier.com/portfolio",
+			"Products I've founded and built:",
+			products,
+		),
+		featuredCard(
+			"Open source",
+			"https://github.com/BenjaminLucier",
+			"I maintain a handful of small open source projects that I use myself:",
+			openSource,
+		),
 	].join("\n");
 }
 
@@ -237,10 +263,12 @@ export function linkedin(root = process.cwd()): string {
 	const tags = JSON.parse(json) as Tag[];
 
 	// Rendered entries per LinkedIn heading, in CV order. Projects marked as
-	// jobs go to the top of Experience, since they're the most recent. Other
-	// projects aren't listed; open source entries go to the Featured list.
+	// jobs go to the top of Experience, since they're the most recent. Projects
+	// with a featured: blurb and every open source entry go to the Featured
+	// lists; nothing else from those sections is listed.
 	const sections = new Map<string, { note: string; items: string[] }>();
 	const jobs: string[] = [];
+	const products: Entry[] = [];
 	const openSource: Entry[] = [];
 	let title = "";
 	let section: (typeof SECTIONS)[string] | undefined;
@@ -252,6 +280,9 @@ export function linkedin(root = process.cwd()): string {
 				sections.set(section.heading, { note: section.note, items: [] });
 		} else if (tag.kind === "career-break") {
 			sections.get(section?.heading ?? "")?.items.push(careerBreak(tag));
+		} else if (title === PROJECTS && tag.featured) {
+			products.push(tag);
+			if (typeof tag.linkedin === "object") jobs.push(job(tag, tag.linkedin));
 		} else if (typeof tag.linkedin === "object") {
 			jobs.push(job(tag, tag.linkedin));
 		} else if (title === OPEN_SOURCE && tag.linkedin) {
@@ -272,7 +303,7 @@ export function linkedin(root = process.cwd()): string {
 		"Fields for the LinkedIn profile forms, newest first, in the same order as the CV.\n",
 	];
 	parts.push(headlineSection(), aboutSection());
-	if (openSource.length > 0) parts.push(featuredSection(openSource));
+	parts.push(featuredSection(products, openSource));
 	for (const [heading, { note, items }] of sections) {
 		if (items.length > 0)
 			parts.push(`## ${heading}\n`, `_${note}_\n`, ...items);

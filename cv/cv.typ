@@ -178,6 +178,7 @@
     [Personal "everything app" unifying notes, goals, fitness, flashcards, habits, bases, files, canvas and AI chat.],
     [Rust (axum, Postgres) API, SolidJS frontend and a WebGPU graph view in Rust/wasm.],
     linkedin: (title: "Founder", start: "Oct 2026", end: "Present"),
+    featured: "a personal everything app for notes, goals, fitness, flashcards and AI chat",
   )
   #entry(
     "PXStudio",
@@ -187,6 +188,7 @@
     [Pixel art and animation editor for web and desktop (Tauri), with premium cloud sync (Rust, SolidJS, TypeGPU).],
     [Sandboxed Lua 5.4 (WASM) scripting engine for user-written tools and automation.],
     linkedin: (title: "Founder", start: "Oct 2026", end: "Present"),
+    featured: "a pixel art and animation editor that works offline and is scriptable in Lua",
   )
   #entry(
     "Travel Nexus",
@@ -195,6 +197,7 @@
     "",
     [Map-first trip planner with shareable, forkable trips and place collections, per-place climate data and Stripe billing.],
     [Built a Rust data pipeline over \~1 TB of OpenStreetMap, Wikidata, Wikipedia and CHELSA climate data to curate places into PostGIS.],
+    featured: "a map-first trip planner with places curated from all of OpenStreetMap",
   )
   #entry(
     "Portfolio",
