@@ -173,7 +173,7 @@
   #entry(
     link("https://useincredible.com")[useincredible.com],
     "",
-    "Founder & Lead Engineer — Public Alpha",
+    "Founder & Lead Engineer",
     "",
     [Personal "everything app" unifying notes, goals, fitness, flashcards, habits, bases, files, canvas and AI chat.],
     [Rust (axum, Postgres) API, SolidJS frontend and a WebGPU graph view in Rust/wasm.],

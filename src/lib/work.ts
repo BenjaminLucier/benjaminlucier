@@ -38,7 +38,6 @@ export const work: Work[] = [
 		date: "2026-10-13",
 		href: "https://useincredible.com",
 		links: { site: "https://useincredible.com" },
-		alpha: true,
 		featured: true,
 		thumbnail: { scene: "generative", options: { style: "flow" } },
 	},
