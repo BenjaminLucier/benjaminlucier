@@ -121,6 +121,20 @@ export const work: Work[] = [
 		thumbnail: { scene: "glyph", options: { text: "128" } },
 	},
 	{
+		slug: "maplibre-solidjs",
+		title: "maplibre-solidjs",
+		summary:
+			"SolidJS 2 components for MapLibre GL JS, typed and faithful to its API: every option, event, source, layer and control.",
+		date: "2026-11-18",
+		href: "https://benjaminlucier.github.io/maplibre-solidjs/",
+		links: {
+			site: "https://benjaminlucier.github.io/maplibre-solidjs/",
+			repo: "https://github.com/BenjaminLucier/maplibre-solidjs",
+			npm: "https://www.npmjs.com/package/maplibre-solidjs",
+		},
+		thumbnail: { scene: "compass" },
+	},
+	{
 		slug: "travel-nexus",
 		title: "Travel Nexus",
 		summary:
