@@ -1,8 +1,8 @@
-import { Globe, Package } from "lucide";
+import Globe from "@lucide/solid/icons/globe";
+import Package from "@lucide/solid/icons/package";
 import { siGithub, siNpm } from "simple-icons";
 import { For, Show } from "solid-js";
 import Card from "~/components/Card";
-import Icon from "~/components/Icon";
 import type { Work, WorkLinks } from "~/lib/work";
 
 /** A filled simple-icons glyph, the same way the header draws its social icons. */
@@ -35,7 +35,7 @@ const linkIcons: {
 	{
 		key: "site",
 		label: "Website",
-		icon: () => <Icon icon={Globe} size={18} />,
+		icon: () => <Globe size={18} aria-hidden="true" />,
 		color: "var(--color-link)",
 	},
 	{
@@ -48,7 +48,7 @@ const linkIcons: {
 	{
 		key: "crate",
 		label: "Crate on crates.io",
-		icon: () => <Icon icon={Package} size={18} />,
+		icon: () => <Package size={18} aria-hidden="true" />,
 		color: "var(--color-ctp-peach)",
 	},
 	{

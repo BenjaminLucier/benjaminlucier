@@ -1,6 +1,7 @@
-import { Menu, X } from "lucide";
+import Menu from "@lucide/solid/icons/menu";
+import X from "@lucide/solid/icons/x";
+import { Dynamic } from "@solidjs/web";
 import { createSignal, For, onSettled, Show } from "solid-js";
-import Icon from "~/components/Icon";
 import SocialLinks from "~/components/SocialLinks";
 import ThemeToggle from "~/components/ThemeToggle";
 import { nav, site } from "~/lib/site";
@@ -48,7 +49,11 @@ export default function Header() {
 				aria-label={menuOpen() ? "Close menu" : "Open menu"}
 				class="absolute top-2 left-0 inline-flex size-11 cursor-pointer items-center justify-center text-muted hover:text-ink md:hidden"
 			>
-				<Icon icon={menuOpen() ? X : Menu} size={22} />
+				<Dynamic
+					component={menuOpen() ? X : Menu}
+					size={22}
+					aria-hidden="true"
+				/>
 			</button>
 
 			<ul

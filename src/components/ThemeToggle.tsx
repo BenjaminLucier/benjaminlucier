@@ -1,6 +1,8 @@
-import { Monitor, Moon, Sun } from "lucide";
+import Monitor from "@lucide/solid/icons/monitor";
+import Moon from "@lucide/solid/icons/moon";
+import Sun from "@lucide/solid/icons/sun";
+import { Dynamic } from "@solidjs/web";
 import { createSignal, onSettled } from "solid-js";
-import Icon from "~/components/Icon";
 import { applyThemeColor } from "~/lib/theme-colors";
 
 type Pref = "system" | "light" | "dark";
@@ -44,7 +46,7 @@ export default function ThemeToggle() {
 			aria-label={`${labels[pref()]} (click to change)`}
 			title={labels[pref()]}
 		>
-			<Icon icon={icons[pref()]} />
+			<Dynamic component={icons[pref()]} size={18} aria-hidden="true" />
 		</button>
 	);
 }
