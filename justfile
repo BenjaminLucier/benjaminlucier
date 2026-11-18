@@ -16,11 +16,7 @@ dev:
 update:
     pnpm update
 
-# Check the Cloudflare credentials in envchain are valid
-whoami:
-    envchain "$(<.ctx)" pnpm wrangler whoami
-
-# Do everything, then deploy to Cloudflare Workers (CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID from envchain, namespace in .ctx):
+# Do everything, then deploy to Cloudflare Workers (Cloudflare credentials through `ctx`, see ctx.toml):
 # clear caches, fix + lint + format, typecheck, CV (+ LinkedIn copy), thumbnails, build (with discovery), audit meta tags
 deploy:
     rm -rf dist .wrangler node_modules/.vite
@@ -31,4 +27,4 @@ deploy:
     pnpm thumbnails
     pnpm build
     pnpm check:meta
-    envchain "$(<.ctx)" pnpm deploy
+    ctx pnpm deploy

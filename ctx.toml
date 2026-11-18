@@ -1,0 +1,4 @@
+# Credentials for this project, used by `ctx` (dotfiles: stow/bin/.local/bin/ctx).
+# Cloudflare: CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID.
+namespace = "benjaminlucier"
+whoami = "pnpm wrangler whoami"
