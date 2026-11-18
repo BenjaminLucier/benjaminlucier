@@ -28,6 +28,40 @@ I architect and build entire applications end to end, from the database and back
 I love an adventure: I've travelled to ~30 countries, circumnavigated Vancouver Island on a sailboat, ridden my motorcycle from coast to coast, splitboarded up and down mountains in the Rockies, Alps and BC Coastal Ranges. When I am not writing code or planning my next adventure, I like to play chess and read.
 ```
 
+## Featured
+
+_Profile → Featured → + → Add a link, then paste the description._
+
+### Portfolio
+
+- **Link:** https://benjaminlucier.com/portfolio
+
+Description (299 characters):
+
+```text
+Products I've founded and built:
+
+• Incredible: a personal everything app for notes, goals, fitness, flashcards and AI chat
+• PXStudio: a pixel art and animation editor that works offline and is scriptable in Lua
+• Travel Nexus: a map-first trip planner with places curated from all of OpenStreetMap
+```
+
+### Open source
+
+- **Link:** https://github.com/BenjaminLucier
+
+Description (333 characters):
+
+```text
+I maintain a handful of small open source projects that I use myself:
+
+• Sophistry: live maths animations and charts for the web
+• cf-rs: async Rust clients for Cloudflare Images and Stream
+• Anzan: a terminal trainer for mental math
+• Gauntlet: a terminal trainer for Rust
+• maplibre-solidjs: SolidJS 2 components for MapLibre GL JS
+```
+
 ## Experience
 
 _Profile → Add profile section → Add position._
@@ -121,86 +155,4 @@ Description (115/2000):
 
 ```text
 • Worked on a social browser gaming engine and platform, then left after a month for a full-time role at The Suite.
-```
-
-## Open Source
-
-_Profile → Add profile section → Add projects._
-
-### Sophistry
-
-- **Project name:** Sophistry
-- **Link (add under Media):** https://sophistry.dev
-
-Description (211/2000):
-
-```text
-• Author & Maintainer.
-• Open-source, Manim-inspired library for controllable maths animations and charts on the web.
-• Pure TypeScript Canvas2D core with code-generated SolidJS and React bindings, LaTeX and 3D.
-```
-
-### cf-rs
-
-- **Project name:** cf-rs
-- **Link (add under Media):** https://github.com/BenjaminLucier/cf-rs
-
-Description (246/2000):
-
-```text
-• Author & Maintainer.
-• Published cf-images, an async Rust client for Cloudflare Images, on crates.io with CI and automated releases.
-• Published cf-stream, an async Rust client for Cloudflare Stream, on crates.io with CI and automated releases.
-```
-
-### Anzan
-
-- **Project name:** Anzan
-- **Link (add under Media):** https://github.com/BenjaminLucier/anzan
-
-Description (117/2000):
-
-```text
-• Author & Maintainer.
-• Rust TUI for mental math practice with adaptive drills, published on crates.io and Homebrew.
-```
-
-### Gauntlet
-
-- **Project name:** Gauntlet
-- **Link (add under Media):** https://github.com/BenjaminLucier/gauntlet
-
-Description (113/2000):
-
-```text
-• Author & Maintainer.
-• Rust TUI with 128 practice problems tested on save, published on crates.io and Homebrew.
-```
-
-## Projects
-
-_Profile → Add profile section → Add projects._
-
-### Travel Nexus
-
-- **Project name:** Travel Nexus
-- **Link (add under Media):** https://travel.nexus
-
-Description (296/2000):
-
-```text
-• Founder & Lead Engineer — Public Alpha.
-• Map-first trip planner with shareable, forkable trips and place collections, per-place climate data and Stripe billing.
-• Built a Rust data pipeline over ~1 TB of OpenStreetMap, Wikidata, Wikipedia and CHELSA climate data to curate places into PostGIS.
-```
-
-### Portfolio
-
-- **Project name:** Portfolio
-- **Link (add under Media):** https://benjaminlucier.com
-
-Description (91/2000):
-
-```text
-• Portfolio and showcase built with SolidJS 2.0, TypeScript and Vite on Cloudflare Workers.
 ```

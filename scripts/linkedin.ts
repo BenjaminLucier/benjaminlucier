@@ -1,5 +1,6 @@
-// Writes cv/linkedin.md: the CV's work experience, open source and projects,
-// laid out as LinkedIn's profile form fields for copy-pasting by hand.
+// Writes cv/linkedin.md: the CV's work experience, laid out as LinkedIn's
+// profile form fields for copy-pasting by hand, plus the products and the
+// open source projects as lists for two Featured cards' descriptions.
 // Reads the `metadata(...) <cv>` tags in cv/cv.typ through `typst eval`, and
 // the About text from src/lib/about.ts, which the home page also renders.
 // Usage: node scripts/linkedin.ts
@@ -17,6 +18,9 @@ const DESCRIPTION_LIMIT = 2000;
 const HEADLINE_LIMIT = 220;
 /** LinkedIn's limit on the About section. */
 const ABOUT_LIMIT = 2600;
+/** The CV sections whose entries make up the two Featured lists. */
+const OPEN_SOURCE = "Open Source";
+const PROJECTS = "Projects";
 
 /** Typst content as `typst eval` serializes it. */
 type Content =
@@ -41,6 +45,8 @@ type Tag =
 			bullets: Content[];
 			/** False leaves the entry out; a Job lists it under Experience. */
 			linkedin: boolean | Job;
+			/** A one-line blurb for a Featured list (products or open source). */
+			featured: string | null;
 	  }
 	| {
 			kind: "career-break";
@@ -159,17 +165,43 @@ function job(e: Entry, j: Job): string {
 	});
 }
 
-function project(e: Entry): string {
-	const role = text(e.sub);
-	const url = href(e.aside);
-	const out = [
-		`### ${text(e.title)}\n`,
-		`- **Project name:** ${text(e.title)}`,
-		url ? `- **Link (add under Media):** ${url}` : "",
+/** One Featured card: a link to add, and a bulleted list as its description. */
+function featuredCard(
+	name: string,
+	link: string,
+	intro: string,
+	entries: Entry[],
+): string {
+	const body = [
+		intro,
 		"",
-		describe([...(role ? [`${role}.`] : []), ...e.bullets.map(text)]),
-	];
-	return out.filter((l, i) => l !== "" || i === out.length - 2).join("\n");
+		...entries.map((e) => `• ${text(e.title)}: ${e.featured}`),
+	].join("\n");
+	return [
+		`### ${name}\n`,
+		`- **Link:** ${link}`,
+		"",
+		field(`Description (${body.length} characters)`, body),
+	].join("\n");
+}
+
+function featuredSection(products: Entry[], openSource: Entry[]): string {
+	return [
+		"## Featured\n",
+		"_Profile → Featured → + → Add a link, then paste the description._\n",
+		featuredCard(
+			"Portfolio",
+			"https://benjaminlucier.com/portfolio",
+			"Products I've founded and built:",
+			products,
+		),
+		featuredCard(
+			"Open source",
+			"https://github.com/BenjaminLucier",
+			"I maintain a handful of small open source projects that I use myself:",
+			openSource,
+		),
+	].join("\n");
 }
 
 function headlineSection(): string {
@@ -220,16 +252,6 @@ const SECTIONS: Record<
 		note: "Profile → Add profile section → Add position.",
 		render: experience,
 	},
-	"Open Source": {
-		heading: "Open Source",
-		note: "Profile → Add profile section → Add projects.",
-		render: project,
-	},
-	Projects: {
-		heading: "Projects",
-		note: "Profile → Add profile section → Add projects.",
-		render: project,
-	},
 };
 
 export function linkedin(root = process.cwd()): string {
@@ -241,19 +263,34 @@ export function linkedin(root = process.cwd()): string {
 	const tags = JSON.parse(json) as Tag[];
 
 	// Rendered entries per LinkedIn heading, in CV order. Projects marked as
-	// jobs go to the top of Experience, since they're the most recent.
+	// jobs go to the top of Experience, since they're the most recent. Projects
+	// with a featured: blurb and every open source entry go to the Featured
+	// lists; nothing else from those sections is listed.
 	const sections = new Map<string, { note: string; items: string[] }>();
 	const jobs: string[] = [];
+	const products: Entry[] = [];
+	const openSource: Entry[] = [];
+	let title = "";
 	let section: (typeof SECTIONS)[string] | undefined;
 	for (const tag of tags) {
 		if (tag.kind === "section") {
+			title = tag.title;
 			section = SECTIONS[tag.title];
 			if (section && !sections.has(section.heading))
 				sections.set(section.heading, { note: section.note, items: [] });
 		} else if (tag.kind === "career-break") {
 			sections.get(section?.heading ?? "")?.items.push(careerBreak(tag));
+		} else if (title === PROJECTS && tag.featured) {
+			products.push(tag);
+			if (typeof tag.linkedin === "object") jobs.push(job(tag, tag.linkedin));
 		} else if (typeof tag.linkedin === "object") {
 			jobs.push(job(tag, tag.linkedin));
+		} else if (title === OPEN_SOURCE && tag.linkedin) {
+			if (!tag.featured)
+				throw new Error(
+					`${text(tag.title)} in ${SOURCE} needs a featured: blurb`,
+				);
+			openSource.push(tag);
 		} else if (section && tag.linkedin) {
 			sections.get(section.heading)?.items.push(section.render(tag));
 		}
@@ -266,6 +303,7 @@ export function linkedin(root = process.cwd()): string {
 		"Fields for the LinkedIn profile forms, newest first, in the same order as the CV.\n",
 	];
 	parts.push(headlineSection(), aboutSection());
+	parts.push(featuredSection(products, openSource));
 	for (const [heading, { note, items }] of sections) {
 		if (items.length > 0)
 			parts.push(`## ${heading}\n`, `_${note}_\n`, ...items);

@@ -15,6 +15,7 @@ export type SceneOptionsMap = {
 	glyph: GlyphSceneOptions;
 	map: MapSceneOptions;
 	epicycle: Record<string, never>;
+	compass: Record<string, never>;
 };
 export type SceneName = keyof SceneOptionsMap;
 

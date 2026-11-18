@@ -2,6 +2,7 @@ import type { JSX } from "@solidjs/web";
 import StillCanvas from "~/components/thumbnails/StillCanvas";
 import {
 	drawCircumpunct,
+	drawCompassScene,
 	drawEpicycleScene,
 	drawGenerativeScene,
 	drawGlyph,
@@ -55,4 +56,5 @@ export const scenes: { [Name in SceneName]: Scene<Name> } = {
 	glyph: still(drawGlyph),
 	map: still(drawMapScene),
 	epicycle: still((ctx, size) => drawEpicycleScene(ctx, size)),
+	compass: still((ctx, size) => drawCompassScene(ctx, size)),
 };

@@ -28,7 +28,7 @@ means agentic functionality and machine learning in production.
 - [**Travel Nexus**](https://travel.nexus) (alpha): a map-first trip planner
   with shareable trips and places curated from the whole OpenStreetMap planet.
 
-## Open source
+## Open Source
 
 - [**Sophistry**](https://sophistry.dev): Manim-inspired, live maths
   animations and charts for the web, in TypeScript with SolidJS and React
@@ -39,6 +39,9 @@ means agentic functionality and machine learning in production.
   mental math. `brew install BenjaminLucier/tap/anzan`
 - [**Gauntlet**](https://github.com/BenjaminLucier/gauntlet): a terminal trainer
   for Rust. `brew install BenjaminLucier/tap/gauntlet`
+- [**maplibre-solidjs**](https://benjaminlucier.github.io/maplibre-solidjs/):
+  SolidJS 2 components for MapLibre GL JS, typed and faithful to its API.
+  `pnpm add maplibre-solidjs`
 
 ---
 

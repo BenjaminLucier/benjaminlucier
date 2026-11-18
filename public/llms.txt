@@ -19,6 +19,7 @@ Benjamin Lucier builds applications end to end, from the database and backend to
 - [cf-stream](https://github.com/BenjaminLucier/cf-rs/tree/main/crates/cf-stream): An async Rust client for Cloudflare Stream, published on crates.io as part of cf-rs.
 - [Anzan](https://github.com/BenjaminLucier/anzan): A terminal trainer for mental math in Rust: timed drills, a stats dashboard and modes that find your weak spots.
 - [Gauntlet](https://github.com/BenjaminLucier/gauntlet): 128 Rust practice problems in a terminal trainer that tests your code on save and times you against reference solutions.
+- [maplibre-solidjs](https://benjaminlucier.github.io/maplibre-solidjs/): SolidJS 2 components for MapLibre GL JS, typed and faithful to its API: every option, event, source, layer and control.
 - [Travel Nexus](https://travel.nexus/): A map-first trip planner with shareable trips and places curated from the whole OpenStreetMap planet.
 - [Pathfinding](https://benjaminlucier.com/pathfinding): A visualizer that races A*, Dijkstra, BFS and DFS on the same maze, drawn both as a grid and as a graph.
 - [Portfolio](https://benjaminlucier.com/portfolio): All of the above, with pictures

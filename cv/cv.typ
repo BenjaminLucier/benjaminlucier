@@ -18,8 +18,10 @@
 // `linkedin` only affects cv/linkedin.md, not the PDF: `false` leaves the entry out,
 // and a dictionary lists it under LinkedIn Experience instead, as
 // (title: ..., start: ..., end: ...), with the entry's title as the company.
-#let entry(title, aside, sub, aside2, linkedin: true, ..bullets) = block(breakable: false, above: 0.95em, below: 0em)[
-  #metadata((kind: "entry", title: title, aside: aside, sub: sub, aside2: aside2, bullets: bullets.pos(), linkedin: linkedin)) <cv>
+// `featured`, also LinkedIn only, is the entry's one-line blurb in the open
+// source list for the Featured card.
+#let entry(title, aside, sub, aside2, linkedin: true, featured: none, ..bullets) = block(breakable: false, above: 0.95em, below: 0em)[
+  #metadata((kind: "entry", title: title, aside: aside, sub: sub, aside2: aside2, bullets: bullets.pos(), linkedin: linkedin, featured: featured)) <cv>
   #grid(
     columns: (1fr, auto),
     strong(title), aside,
@@ -129,6 +131,7 @@
     "",
     [Open-source, Manim-inspired library for controllable maths animations and charts on the web.],
     [Pure TypeScript Canvas2D core with code-generated SolidJS and React bindings, LaTeX and 3D.],
+    featured: "live maths animations and charts for the web",
   )
   #entry(
     "cf-rs",
@@ -137,6 +140,7 @@
     "",
     [Published `cf-images`, an async Rust client for Cloudflare Images, on #link("https://crates.io/crates/cf-images")[crates.io] with CI and automated releases.],
     [Published `cf-stream`, an async Rust client for Cloudflare Stream, on #link("https://crates.io/crates/cf-stream")[crates.io] with CI and automated releases.],
+    featured: "async Rust clients for Cloudflare Images and Stream",
   )
   #entry(
     "Anzan",
@@ -144,6 +148,7 @@
     "Author & Maintainer",
     "",
     [Rust TUI for mental math practice with adaptive drills, published on #link("https://crates.io/crates/anzan")[crates.io] and Homebrew.],
+    featured: "a terminal trainer for mental math",
   )
   #entry(
     "Gauntlet",
@@ -151,6 +156,16 @@
     "Author & Maintainer",
     "",
     [Rust TUI with 128 practice problems tested on save, published on #link("https://crates.io/crates/gauntlet")[crates.io] and Homebrew.],
+    featured: "a terminal trainer for Rust",
+  )
+  #entry(
+    "maplibre-solidjs",
+    link("https://github.com/BenjaminLucier/maplibre-solidjs")[github.com/BenjaminLucier/maplibre-solidjs],
+    "Author & Maintainer",
+    "",
+    [Typed SolidJS 2 components covering MapLibre GL JS's options, events, sources, layers, markers and controls.],
+    [Published on #link("https://www.npmjs.com/package/maplibre-solidjs")[npm] with provenance, tested in Chromium against real MapLibre, with a #link("https://benjaminlucier.github.io/maplibre-solidjs/")[docs and examples site].],
+    featured: "SolidJS 2 components for MapLibre GL JS",
   )
 ]
 
@@ -163,6 +178,7 @@
     [Personal "everything app" unifying notes, goals, fitness, flashcards, habits, bases, files, canvas and AI chat.],
     [Rust (axum, Postgres) API, SolidJS frontend and a WebGPU graph view in Rust/wasm.],
     linkedin: (title: "Founder", start: "Oct 2026", end: "Present"),
+    featured: "a personal everything app for notes, goals, fitness, flashcards and AI chat",
   )
   #entry(
     "PXStudio",
@@ -172,6 +188,7 @@
     [Pixel art and animation editor for web and desktop (Tauri), with premium cloud sync (Rust, SolidJS, TypeGPU).],
     [Sandboxed Lua 5.4 (WASM) scripting engine for user-written tools and automation.],
     linkedin: (title: "Founder", start: "Oct 2026", end: "Present"),
+    featured: "a pixel art and animation editor that works offline and is scriptable in Lua",
   )
   #entry(
     "Travel Nexus",
@@ -180,6 +197,7 @@
     "",
     [Map-first trip planner with shareable, forkable trips and place collections, per-place climate data and Stripe billing.],
     [Built a Rust data pipeline over \~1 TB of OpenStreetMap, Wikidata, Wikipedia and CHELSA climate data to curate places into PostGIS.],
+    featured: "a map-first trip planner with places curated from all of OpenStreetMap",
   )
   #entry(
     "Portfolio",

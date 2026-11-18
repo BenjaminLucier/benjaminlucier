@@ -594,3 +594,117 @@ export function drawEpicycleScene(
 	ctx.arc(tx, ty, height * 0.01, 0, TAU);
 	ctx.fill();
 }
+
+/**
+ * An abstract compass rose, turned off north: faint rings and a bezel of
+ * ticks around an eight-point star, its north point in the accent colour.
+ */
+export function drawCompassScene(
+	ctx: CanvasRenderingContext2D,
+	size: SceneSize,
+) {
+	const palette = palettes[currentMode()];
+	const { width, height } = size;
+	const cx = width / 2;
+	const cy = height / 2;
+	const r = height * 0.4;
+	const turn = -TAU / 24;
+	const at = (angle: number, radius: number): Point => [
+		cx + radius * Math.sin(angle + turn),
+		cy - radius * Math.cos(angle + turn),
+	];
+
+	ctx.fillStyle = palette.background;
+	ctx.fillRect(0, 0, width, height);
+	ctx.lineCap = "round";
+	ctx.lineJoin = "round";
+
+	// Rings, the inner ones fainter.
+	ctx.strokeStyle = palette.link;
+	for (const [radius, alpha] of [
+		[r, 0.6],
+		[r * 0.78, 0.35],
+		[r * 0.3, 0.35],
+	] as const) {
+		ctx.globalAlpha = alpha;
+		ctx.lineWidth = 1.5;
+		ctx.beginPath();
+		ctx.arc(cx, cy, radius, 0, TAU);
+		ctx.stroke();
+	}
+
+	// The bezel: a tick every 5°, longer every 30° and longest at the cardinals.
+	for (let deg = 0; deg < 360; deg += 5) {
+		const long = deg % 90 === 0 ? 0.13 : deg % 30 === 0 ? 0.08 : 0.04;
+		const angle = (deg / 360) * TAU;
+		const [x1, y1] = at(angle, r * 0.97);
+		const [x2, y2] = at(angle, r * (0.97 - long));
+		ctx.globalAlpha = deg % 30 === 0 ? 0.9 : 0.45;
+		ctx.strokeStyle =
+			deg % 90 === 0 ? (palette.nodes[0] as string) : palette.link;
+		ctx.lineWidth = deg % 90 === 0 ? 2.5 : 1.25;
+		ctx.beginPath();
+		ctx.moveTo(x1, y1);
+		ctx.lineTo(x2, y2);
+		ctx.stroke();
+	}
+	ctx.globalAlpha = 1;
+
+	// A star point: two halves, lit and shaded, from the centre to `length`.
+	const point = (
+		angle: number,
+		length: number,
+		halfWidth: number,
+		lit: string,
+		shade: string,
+	) => {
+		const tip = at(angle, length);
+		const left = at(angle - TAU / 4, halfWidth);
+		const right = at(angle + TAU / 4, halfWidth);
+		for (const [side, colour] of [
+			[left, lit],
+			[right, shade],
+		] as const) {
+			ctx.fillStyle = colour;
+			ctx.beginPath();
+			ctx.moveTo(cx, cy);
+			ctx.lineTo(side[0], side[1]);
+			ctx.lineTo(tip[0], tip[1]);
+			ctx.closePath();
+			ctx.fill();
+		}
+	};
+
+	// Intercardinal points behind, cardinal points in front, north last.
+	for (let i = 0; i < 4; i++) {
+		ctx.globalAlpha = 0.75;
+		point(
+			TAU / 8 + (i * TAU) / 4,
+			r * 0.55,
+			r * 0.09,
+			palette.nodes[2] as string,
+			palette.nodes[1] as string,
+		);
+	}
+	ctx.globalAlpha = 1;
+	for (let i = 1; i < 4; i++) {
+		point(
+			(i * TAU) / 4,
+			r * 0.86,
+			r * 0.13,
+			palette.nodes[3] as string,
+			palette.nodes[0] as string,
+		);
+	}
+	point(0, r * 0.95, r * 0.13, palette.pulse, palette.link);
+
+	// The pivot.
+	ctx.fillStyle = palette.background;
+	ctx.beginPath();
+	ctx.arc(cx, cy, r * 0.07, 0, TAU);
+	ctx.fill();
+	ctx.fillStyle = palette.pulse;
+	ctx.beginPath();
+	ctx.arc(cx, cy, r * 0.035, 0, TAU);
+	ctx.fill();
+}
