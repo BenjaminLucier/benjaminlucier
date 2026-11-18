@@ -20,7 +20,7 @@ means agentic functionality and machine learning in production.
 
 ## Projects
 
-- [**useincredible.com**](https://useincredible.com) (alpha): a personal everything
+- [**useincredible.com**](https://useincredible.com) (live): a personal everything
   app. Notes, typed tables, goals, fitness, flashcards and AI chat in one
   workspace.
 - [**pxstud.io**](https://pxstud.io) (live): a pixel art and animation editor
