@@ -53,6 +53,29 @@ export const work: Work[] = [
 		thumbnail: { scene: "generative", options: { style: "dither" } },
 	},
 	{
+		slug: "predict",
+		title: "predict",
+		summary:
+			"A batteries-included machine learning framework for Rust, with a consistent, scikit-learn-style API.",
+		date: "2026-11-18",
+		href: "https://predict.rs",
+		links: {
+			site: "https://predict.rs",
+			repo: "https://github.com/BenjaminLucier/predict",
+			crate: "https://crates.io/crates/predict",
+		},
+		alpha: true,
+		thumbnail: {
+			scene: "glyph",
+			// An italic maths serif, so the hat sits on the y (Mincho sets it beside it).
+			options: {
+				text: "ŷ",
+				style: "italic 500",
+				family: '"STIX Two Text", "Times New Roman", serif',
+			},
+		},
+	},
+	{
 		slug: "sophistry",
 		title: "sophistry",
 		summary:

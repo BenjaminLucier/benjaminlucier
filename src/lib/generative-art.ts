@@ -356,21 +356,29 @@ export function drawCircumpunct(
 export type GlyphSceneOptions = {
 	/** The characters to show, e.g. a project's name in its own script. */
 	text: string;
+	/** CSS font style and weight, e.g. `italic 500`. */
+	style?: string;
+	/** CSS font families. The default puts Mincho (serif) faces first, for brush-like
+	 * strokes in Japanese; any CJK font will do. */
+	family?: string;
 };
 
 /** A word set large and centred, shaded from the palette's blue to its mauve. */
 export function drawGlyph(
 	ctx: CanvasRenderingContext2D,
 	size: SceneSize,
-	{ text }: GlyphSceneOptions,
+	{
+		text,
+		style = "600",
+		family = '"Hiragino Mincho ProN", "Yu Mincho", "Noto Serif CJK JP", "Noto Serif JP", serif',
+	}: GlyphSceneOptions,
 ) {
 	const palette = palettes[currentMode()];
 	const fontSize = size.height * 0.5;
 
 	ctx.fillStyle = palette.background;
 	ctx.fillRect(0, 0, size.width, size.height);
-	// Mincho (serif) faces first, for brush-like strokes in Japanese; any CJK font will do.
-	ctx.font = `600 ${fontSize}px "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif CJK JP", "Noto Serif JP", serif`;
+	ctx.font = `${style} ${fontSize}px ${family}`;
 	ctx.textAlign = "center";
 	ctx.textBaseline = "middle";
 	const half = ctx.measureText(text).width / 2;

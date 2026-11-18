@@ -125,6 +125,14 @@
 
 #section("Open Source")[
   #entry(
+    "predict",
+    link("https://predict.rs")[predict.rs],
+    "Author & Maintainer",
+    "",
+    [Open-source, batteries-included machine learning framework for Rust with a consistent, scikit-learn-style API.],
+    [Typed dense and sparse datasets, synthetic data, metrics, cross-validation and least squares solved by SVD.],
+  )
+  #entry(
     "sophistry",
     link("https://sophistry.dev")[sophistry.dev],
     "Author & Maintainer",

@@ -46,10 +46,10 @@ Products I founded and built: useincredible.com, pxstud.io, travel.nexus
 
 - **Link:** https://github.com/BenjaminLucier
 
-Description (96 characters):
+Description (105 characters):
 
 ```text
-Open source projects I started and maintain: sophistry, cf-rs, anzan, gauntlet, maplibre-solidjs
+Open source projects I started and maintain: predict, sophistry, cf-rs, anzan, gauntlet, maplibre-solidjs
 ```
 
 ## Experience
