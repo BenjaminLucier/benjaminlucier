@@ -30,6 +30,9 @@ means agentic functionality and machine learning in production.
 
 ## Open Source
 
+- [**predict**](https://predict.rs) (alpha): a batteries-included machine
+  learning framework for Rust, with a consistent, scikit-learn-style API.
+  `cargo add predict`
 - [**sophistry**](https://sophistry.dev): Manim-inspired, live maths
   animations and charts for the web, in TypeScript with SolidJS and React
   bindings.

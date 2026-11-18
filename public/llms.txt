@@ -14,6 +14,7 @@ Benjamin Lucier builds applications end to end, from the database and backend to
 
 - [incredible](https://useincredible.com/): A personal everything app: notes, typed tables, goals, fitness, flashcards and AI chat in one workspace.
 - [pxstudio](https://pxstud.io/): A pixel art and animation editor for the browser or desktop that works offline and is scriptable in Lua.
+- [predict](https://predict.rs/): A batteries-included machine learning framework for Rust, with a consistent, scikit-learn-style API.
 - [sophistry](https://sophistry.dev/): Manim-inspired, live maths animations and charts for the web, in TypeScript with SolidJS and React bindings.
 - [cf-images](https://github.com/BenjaminLucier/cf-rs/tree/main/crates/cf-images): An async Rust client for Cloudflare Images, published on crates.io as part of cf-rs.
 - [cf-stream](https://github.com/BenjaminLucier/cf-rs/tree/main/crates/cf-stream): An async Rust client for Cloudflare Stream, published on crates.io as part of cf-rs.
