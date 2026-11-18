@@ -20,10 +20,10 @@ means agentic functionality and machine learning in production.
 
 ## Projects
 
-- [**useincredible.com**](https://useincredible.com) (live): a personal everything
+- [**useincredible.com**](https://useincredible.com): a personal everything
   app. Notes, typed tables, goals, fitness, flashcards and AI chat in one
   workspace.
-- [**pxstud.io**](https://pxstud.io) (live): a pixel art and animation editor
+- [**pxstud.io**](https://pxstud.io): a pixel art and animation editor
   for the browser or desktop that works offline and is scriptable in Lua.
 - [**travel.nexus**](https://travel.nexus) (alpha): a map-first trip planner
   with shareable trips and places curated from the whole OpenStreetMap planet.
