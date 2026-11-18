@@ -20,24 +20,24 @@ means agentic functionality and machine learning in production.
 
 ## Projects
 
-- [**Incredible**](https://useincredible.com) (alpha): a personal everything
+- [**useincredible.com**](https://useincredible.com) (alpha): a personal everything
   app. Notes, typed tables, goals, fitness, flashcards and AI chat in one
   workspace.
-- [**PXStudio**](https://pxstud.io) (live): a pixel art and animation editor
+- [**pxstud.io**](https://pxstud.io) (live): a pixel art and animation editor
   for the browser or desktop that works offline and is scriptable in Lua.
-- [**Travel Nexus**](https://travel.nexus) (alpha): a map-first trip planner
+- [**travel.nexus**](https://travel.nexus) (alpha): a map-first trip planner
   with shareable trips and places curated from the whole OpenStreetMap planet.
 
 ## Open Source
 
-- [**Sophistry**](https://sophistry.dev): Manim-inspired, live maths
+- [**sophistry**](https://sophistry.dev): Manim-inspired, live maths
   animations and charts for the web, in TypeScript with SolidJS and React
   bindings.
 - [**cf-rs**](https://github.com/BenjaminLucier/cf-rs): async Rust clients for
   Cloudflare's media APIs, published as `cf-images` and `cf-stream`.
-- [**Anzan**](https://github.com/BenjaminLucier/anzan): a terminal trainer for
+- [**anzan**](https://github.com/BenjaminLucier/anzan): a terminal trainer for
   mental math. `brew install BenjaminLucier/tap/anzan`
-- [**Gauntlet**](https://github.com/BenjaminLucier/gauntlet): a terminal trainer
+- [**gauntlet**](https://github.com/BenjaminLucier/gauntlet): a terminal trainer
   for Rust. `brew install BenjaminLucier/tap/gauntlet`
 - [**maplibre-solidjs**](https://benjaminlucier.github.io/maplibre-solidjs/):
   SolidJS 2 components for MapLibre GL JS, typed and faithful to its API.

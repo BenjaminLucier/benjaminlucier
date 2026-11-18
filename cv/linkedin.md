@@ -36,14 +36,14 @@ _Profile → Featured → + → Add a link, then paste the description._
 
 - **Link:** https://benjaminlucier.com/portfolio
 
-Description (299 characters):
+Description (307 characters):
 
 ```text
 Products I've founded and built:
 
-• Incredible: a personal everything app for notes, goals, fitness, flashcards and AI chat
-• PXStudio: a pixel art and animation editor that works offline and is scriptable in Lua
-• Travel Nexus: a map-first trip planner with places curated from all of OpenStreetMap
+• useincredible.com: a personal everything app for notes, goals, fitness, flashcards and AI chat
+• pxstud.io: a pixel art and animation editor that works offline and is scriptable in Lua
+• travel.nexus: a map-first trip planner with places curated from all of OpenStreetMap
 ```
 
 ### Open source
@@ -55,10 +55,10 @@ Description (333 characters):
 ```text
 I maintain a handful of small open source projects that I use myself:
 
-• Sophistry: live maths animations and charts for the web
+• sophistry: live maths animations and charts for the web
 • cf-rs: async Rust clients for Cloudflare Images and Stream
-• Anzan: a terminal trainer for mental math
-• Gauntlet: a terminal trainer for Rust
+• anzan: a terminal trainer for mental math
+• gauntlet: a terminal trainer for Rust
 • maplibre-solidjs: SolidJS 2 components for MapLibre GL JS
 ```
 
@@ -66,10 +66,10 @@ I maintain a handful of small open source projects that I use myself:
 
 _Profile → Add profile section → Add position._
 
-### Founder — Incredible
+### Founder — useincredible.com
 
 - **Title:** Founder
-- **Company:** Incredible
+- **Company:** useincredible.com
 - **Start date:** Oct 2026
 - **End date:** (currently working here)
 - **Link (add under Media):** https://useincredible.com
@@ -81,10 +81,10 @@ Description (197/2000):
 • Rust (axum, Postgres) API, SolidJS frontend and a WebGPU graph view in Rust/wasm.
 ```
 
-### Founder — PXStudio
+### Founder — pxstud.io
 
 - **Title:** Founder
-- **Company:** PXStudio
+- **Company:** pxstud.io
 - **Start date:** Oct 2026
 - **End date:** (currently working here)
 - **Link (add under Media):** https://pxstud.io

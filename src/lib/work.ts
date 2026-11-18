@@ -32,7 +32,7 @@ export interface Work {
 export const work: Work[] = [
 	{
 		slug: "incredible",
-		title: "Incredible",
+		title: "incredible",
 		summary:
 			"A personal everything app: notes, typed tables, goals, fitness, flashcards and AI chat in one workspace.",
 		date: "2026-10-13",
@@ -44,7 +44,7 @@ export const work: Work[] = [
 	},
 	{
 		slug: "pxstudio",
-		title: "PXStudio",
+		title: "pxstudio",
 		summary:
 			"A pixel art and animation editor for the browser or desktop that works offline and is scriptable in Lua.",
 		date: "2026-10-19",
@@ -55,7 +55,7 @@ export const work: Work[] = [
 	},
 	{
 		slug: "sophistry",
-		title: "Sophistry",
+		title: "sophistry",
 		summary:
 			"Manim-inspired, live maths animations and charts for the web, in TypeScript with SolidJS and React bindings.",
 		date: "2026-10-31",
@@ -96,7 +96,7 @@ export const work: Work[] = [
 	},
 	{
 		slug: "anzan",
-		title: "Anzan",
+		title: "anzan",
 		summary:
 			"A terminal trainer for mental math in Rust: timed drills, a stats dashboard and modes that find your weak spots.",
 		date: "2026-11-13",
@@ -109,7 +109,7 @@ export const work: Work[] = [
 	},
 	{
 		slug: "gauntlet",
-		title: "Gauntlet",
+		title: "gauntlet",
 		summary:
 			"128 Rust practice problems in a terminal trainer that tests your code on save and times you against reference solutions.",
 		date: "2026-11-16",
@@ -136,7 +136,7 @@ export const work: Work[] = [
 	},
 	{
 		slug: "travel-nexus",
-		title: "Travel Nexus",
+		title: "travel nexus",
 		summary:
 			"A map-first trip planner with shareable trips and places curated from the whole OpenStreetMap planet.",
 		date: "2026-10-01",
@@ -147,7 +147,7 @@ export const work: Work[] = [
 	},
 	{
 		slug: "pathfinding",
-		title: "Pathfinding",
+		title: "pathfinding",
 		summary:
 			"A visualizer that races A*, Dijkstra, BFS and DFS on the same maze, drawn both as a grid and as a graph.",
 		date: "2026-11-13",
@@ -166,7 +166,7 @@ export const work: Work[] = [
 	},
 	{
 		slug: "benjaminlucier",
-		title: "Portfolio",
+		title: "portfolio",
 		summary:
 			"This site: my portfolio, CV and stack, rendered at build time to static HTML.",
 		date: "2026-10-08",
