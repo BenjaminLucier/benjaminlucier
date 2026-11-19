@@ -1,3 +1,4 @@
+import { Button } from "@kobalte/core/button";
 import Monitor from "@lucide/solid/icons/monitor";
 import Moon from "@lucide/solid/icons/moon";
 import Sun from "@lucide/solid/icons/sun";
@@ -39,7 +40,7 @@ export default function ThemeToggle() {
 	};
 
 	return (
-		<button
+		<Button
 			type="button"
 			onClick={cycle}
 			class="inline-flex size-11 cursor-pointer items-center justify-center text-muted hover:text-ink"
@@ -47,6 +48,6 @@ export default function ThemeToggle() {
 			title={labels[pref()]}
 		>
 			<Dynamic component={icons[pref()]} size={18} aria-hidden="true" />
-		</button>
+		</Button>
 	);
 }
