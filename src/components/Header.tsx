@@ -1,4 +1,5 @@
 import { Dialog } from "@kobalte/core/dialog";
+import { Link } from "@kobalte/core/link";
 import Menu from "@lucide/solid/icons/menu";
 import X from "@lucide/solid/icons/x";
 import { Dynamic } from "@solidjs/web";
@@ -57,13 +58,13 @@ export default function Header() {
 						<For each={nav}>
 							{(item) => (
 								<li>
-									<a
+									<Link
 										href={item.href}
 										class="nav-link text-base"
 										onClick={close}
 									>
 										{item.label}
-									</a>
+									</Link>
 								</li>
 							)}
 						</For>
@@ -81,9 +82,9 @@ export default function Header() {
 				<For each={nav}>
 					{(item) => (
 						<li>
-							<a href={item.href} class="nav-link lg:text-sm">
+							<Link href={item.href} class="nav-link lg:text-sm">
 								{item.label}
-							</a>
+							</Link>
 						</li>
 					)}
 				</For>
@@ -92,22 +93,22 @@ export default function Header() {
 			{/* Mobile: centred and pinned to the bar, so it stays put when the menu
 			    expands the nav. Desktop: at the left edge. */}
 			<div class="absolute top-[30px] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center leading-tight whitespace-nowrap md:top-1/2 md:left-0 md:translate-x-0 md:text-left">
-				<a
+				<Link
 					href="/"
 					class="font-serif text-xl font-bold text-ink no-underline lg:text-2xl"
 				>
 					{site.name}
-				</a>
+				</Link>
 				<p class="font-sans text-xs text-muted lg:text-sm">
 					Using{" "}
-					<a
+					<Link
 						href="https://en.wikipedia.org/wiki/Logos"
 						target="_blank"
 						rel="noopener noreferrer"
 						class="italic text-muted no-underline hover:text-link"
 					>
 						Logos
-					</a>{" "}
+					</Link>{" "}
 					to turn Chaos into Order
 				</p>
 			</div>

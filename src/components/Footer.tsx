@@ -1,3 +1,4 @@
+import { Link } from "@kobalte/core/link";
 import SocialLinks from "~/components/SocialLinks";
 import { site } from "~/lib/site";
 
@@ -31,8 +32,8 @@ export default function Footer() {
 
 function ExternalLink(props: { href: string; children: string }) {
 	return (
-		<a href={props.href} target="_blank" rel="noopener" class="meta-link">
+		<Link href={props.href} target="_blank" rel="noopener" class="meta-link">
 			{props.children}
-		</a>
+		</Link>
 	);
 }
