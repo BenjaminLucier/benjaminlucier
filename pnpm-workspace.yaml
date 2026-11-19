@@ -7,10 +7,18 @@ minimumReleaseAgeExclude:
   - solid-js@2.0.1
   - "@solidjs/vite-plugin@3.0.1"
 permissions:
-  '@solidjs/web':
+  "@solidjs/web":
     skills: true
   solid-js:
     skills: [reactivity-diagnostics, solid-2.0, solid-2.0-cheatsheet]
 skills:
   dirs:
     - .claude/skills
+
+# @kobalte/core 2.0.0-alpha.4 pins its peers exactly to Solid 2.0.0-rc.16.
+# kobaltedev/kobalte#756 loosens them to ranges but is unreleased. Remove this
+# once Kobalte publishes a version whose peers accept Solid 2 stable.
+peerDependencyRules:
+  allowedVersions:
+    "@kobalte/core>solid-js": "2"
+    "@kobalte/core>@solidjs/web": "2"
