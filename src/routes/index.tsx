@@ -1,3 +1,4 @@
+import { Link } from "@kobalte/core/link";
 import { For } from "solid-js";
 import FeaturedPhotos from "~/components/FeaturedPhotos";
 import NewsletterSignup from "~/components/NewsletterSignup";
@@ -53,9 +54,13 @@ export default function Home() {
 													typeof span === "string" ? (
 														span
 													) : (
-														<a href={span.href} target="_blank" rel="noopener">
+														<Link
+															href={span.href}
+															target="_blank"
+															rel="noopener"
+														>
 															{span.text}
-														</a>
+														</Link>
 													)
 												}
 											</For>

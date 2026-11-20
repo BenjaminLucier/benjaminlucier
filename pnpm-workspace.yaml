@@ -15,10 +15,17 @@ skills:
   dirs:
     - .claude/skills
 
-# @kobalte/core 2.0.0-alpha.4 pins its peers exactly to Solid 2.0.0-rc.16.
+# @kobalte/core 2.0.0-alpha.4 and @kobalte/utils pin their peers exactly to Solid 2.0.0-rc.16.
 # kobaltedev/kobalte#756 loosens them to ranges but is unreleased. Remove this
 # once Kobalte publishes a version whose peers accept Solid 2 stable.
 peerDependencyRules:
   allowedVersions:
     "@kobalte/core>solid-js": "2"
     "@kobalte/core>@solidjs/web": "2"
+    "@kobalte/utils>solid-js": "2"
+    "@kobalte/utils>@solidjs/web": "2"
+# On Solid 2.0.1, DismissableLayer's onSettled runs before its ref is set, so no dialog, popover,
+# menu or tooltip ever joins Kobalte's layer stack: Escape and outside presses do nothing. The
+# patch registers the layer from an effect on the ref instead. Recheck on every Kobalte upgrade.
+patchedDependencies:
+  "@kobalte/core@2.0.0-alpha.4": patches/@kobalte__core@2.0.0-alpha.4.patch

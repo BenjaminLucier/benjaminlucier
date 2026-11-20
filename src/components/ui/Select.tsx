@@ -1,4 +1,5 @@
-import { For } from "solid-js";
+import { Select as KSelect } from "@kobalte/core/select";
+import { Check, ChevronDown } from "@lucide/solid";
 
 export type SelectOption<T extends string> = { value: T; label: string };
 
@@ -10,33 +11,48 @@ export default function Select<T extends string>(props: {
 	label: string;
 	disabled?: boolean;
 }) {
+	const selected = () =>
+		props.options.find((o) => o.value === props.value) ?? null;
 	return (
-		<span class="relative inline-flex">
-			<select
-				// Same h-11 as Button, so they line up in a row without any alignment tricks.
-				// text-base (16px) keeps iOS Safari from zooming the page when it gains focus.
-				class="h-11 cursor-pointer appearance-none rounded-md border border-rule-strong bg-paper pr-9 pl-3 font-sans text-base font-medium text-ink shadow-sm transition-colors hover:enabled:bg-wash disabled:cursor-not-allowed disabled:opacity-45"
+		<KSelect<SelectOption<T>>
+			options={[...props.options]}
+			optionValue="value"
+			optionTextValue="label"
+			value={selected()}
+			// Kobalte reports null when the selection is cleared; this select always has a value.
+			onChange={(option) => option && props.onChange(option.value)}
+			disabled={props.disabled ?? false}
+			disallowEmptySelection
+			itemComponent={(item) => (
+				<KSelect.Item
+					item={item.item}
+					class="flex h-11 cursor-pointer items-center justify-between gap-3 rounded px-3 font-sans text-base text-ink outline-none data-highlighted:bg-wash"
+				>
+					<KSelect.ItemLabel>{item.item.rawValue.label}</KSelect.ItemLabel>
+					<KSelect.ItemIndicator>
+						<Check size={16} aria-hidden="true" />
+					</KSelect.ItemIndicator>
+				</KSelect.Item>
+			)}
+		>
+			<KSelect.HiddenSelect />
+			{/* Same h-11 as Button, so they line up in a row without any alignment tricks. */}
+			<KSelect.Trigger
 				aria-label={props.label}
-				disabled={props.disabled}
-				value={props.value}
-				onChange={(e) => props.onChange(e.currentTarget.value as T)}
+				class="inline-flex h-11 cursor-pointer items-center gap-2 rounded-md border border-rule-strong bg-paper pr-3 pl-3 font-sans text-base font-medium text-ink shadow-sm transition-colors hover:enabled:bg-wash disabled:cursor-not-allowed disabled:opacity-45"
 			>
-				<For each={props.options}>
-					{(o) => <option value={o.value}>{o.label}</option>}
-				</For>
-			</select>
-			<svg
-				class="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-muted"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				aria-hidden="true"
-			>
-				<path d="m6 9 6 6 6-6" />
-			</svg>
-		</span>
+				<KSelect.Value<SelectOption<T>>>
+					{(state) => state.selectedOption().label}
+				</KSelect.Value>
+				<KSelect.Icon class="text-muted">
+					<ChevronDown size={16} aria-hidden="true" />
+				</KSelect.Icon>
+			</KSelect.Trigger>
+			<KSelect.Portal>
+				<KSelect.Content class="z-50 rounded-md border border-rule-strong bg-paper p-1 shadow-md">
+					<KSelect.Listbox class="outline-none" />
+				</KSelect.Content>
+			</KSelect.Portal>
+		</KSelect>
 	);
 }

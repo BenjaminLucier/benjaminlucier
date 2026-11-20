@@ -1,3 +1,4 @@
+import { Link } from "@kobalte/core/link";
 import { createSignal, For, onSettled } from "solid-js";
 import ThemeToggle from "~/components/ThemeToggle";
 import Button from "~/components/ui/Button";
@@ -590,9 +591,9 @@ export default function Pathfinding() {
 			class="flex h-svh flex-col gap-3 overflow-hidden p-3 font-sans sm:p-4"
 		>
 			<header class="flex flex-wrap items-center gap-x-4 gap-y-2">
-				<a href="/portfolio" class="meta-link shrink-0">
+				<Link href="/portfolio" class="meta-link shrink-0">
 					← Portfolio
-				</a>
+				</Link>
 				<h1 class="font-serif text-xl font-bold text-ink">Pathfinding</h1>
 				<div class="flex flex-1 flex-wrap items-center justify-center gap-2">
 					<Button variant="primary" disabled={busy()} onClick={runSolve}>

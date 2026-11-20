@@ -1,4 +1,5 @@
-import type { JSX } from "@solidjs/web";
+import { type ButtonRootProps, Button as KButton } from "@kobalte/core/button";
+import type { PolymorphicProps } from "@kobalte/core/polymorphic";
 import { omit } from "solid-js";
 
 const base =
@@ -10,13 +11,13 @@ const variants = {
 };
 
 export default function Button(
-	props: JSX.ButtonHTMLAttributes<HTMLButtonElement> & {
+	props: PolymorphicProps<"button", ButtonRootProps<"button">> & {
 		variant?: keyof typeof variants;
 	},
 ) {
 	const rest = omit(props, "class", "type", "variant");
 	return (
-		<button
+		<KButton
 			type={props.type ?? "button"}
 			class={`${base} ${variants[props.variant ?? "default"]} ${props.class ?? ""}`}
 			{...rest}

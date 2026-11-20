@@ -1,3 +1,4 @@
+import { Link } from "@kobalte/core/link";
 import { For, Show } from "solid-js";
 import PageTitle from "~/components/PageTitle";
 
@@ -103,14 +104,14 @@ export default function CV() {
 				<h1 class="font-sans text-4xl font-bold tracking-tight text-ink">
 					Curriculum Vitae
 				</h1>
-				<a
+				<Link
 					href="/cv.pdf"
 					target="_blank"
 					rel="noopener"
 					class="meta-link whitespace-nowrap"
 				>
 					Open PDF ↗
-				</a>
+				</Link>
 			</div>
 
 			<Section title="Work Experience" entries={experience} />
@@ -145,9 +146,9 @@ function EntryRow(props: { entry: Entry }) {
 					{props.entry.title}
 				</h3>
 				<p class="text-base">
-					<a href={props.entry.href} target="_blank" rel="noopener">
+					<Link href={props.entry.href} target="_blank" rel="noopener">
 						{props.entry.org}
-					</a>
+					</Link>
 				</p>
 				<Show when={props.entry.bullets}>
 					{(bullets) => (

@@ -1,3 +1,4 @@
+import { Button } from "@kobalte/core/button";
 import { createSignal, For, onSettled } from "solid-js";
 
 /** Shown in this order. Square crops, so `position` picks what stays in frame. */
@@ -74,7 +75,7 @@ export default function FeaturedPhotos(props: { class?: string }) {
 	});
 
 	return (
-		<button
+		<Button
 			type="button"
 			onClick={() => {
 				next();
@@ -107,6 +108,6 @@ export default function FeaturedPhotos(props: { class?: string }) {
 					);
 				}}
 			</For>
-		</button>
+		</Button>
 	);
 }

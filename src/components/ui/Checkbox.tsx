@@ -1,4 +1,7 @@
+import { Checkbox as KCheckbox } from "@kobalte/core/checkbox";
+import { Check } from "@lucide/solid";
 import type { JSX } from "@solidjs/web";
+import { omit } from "solid-js";
 
 export default function Checkbox(props: {
 	checked: boolean;
@@ -9,19 +12,19 @@ export default function Checkbox(props: {
 	children: JSX.Element;
 }) {
 	return (
-		<label
-			class={`flex min-h-11 items-center gap-2 font-sans text-base text-ink ${props.disabled ? "cursor-not-allowed opacity-45" : "cursor-pointer"}`}
+		<KCheckbox
+			{...omit(props, "children")}
+			class="group flex min-h-11 cursor-pointer items-center gap-2 font-sans text-base text-ink data-disabled:cursor-not-allowed data-disabled:opacity-45"
 		>
-			<input
-				type="checkbox"
-				class="size-5 cursor-[inherit] accent-link"
-				checked={props.checked}
-				disabled={props.disabled}
-				name={props.name}
-				required={props.required}
-				onChange={(e) => props.onChange(e.currentTarget.checked)}
-			/>
-			{props.children}
-		</label>
+			<KCheckbox.Input class="peer" />
+			<KCheckbox.Control class="flex size-5 items-center justify-center rounded border border-rule-strong bg-paper text-paper transition-colors group-data-checked:border-link group-data-checked:bg-link peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-link">
+				<KCheckbox.Indicator>
+					<Check size={14} stroke-width={3} aria-hidden="true" />
+				</KCheckbox.Indicator>
+			</KCheckbox.Control>
+			<KCheckbox.Label class="cursor-[inherit]">
+				{props.children}
+			</KCheckbox.Label>
+		</KCheckbox>
 	);
 }

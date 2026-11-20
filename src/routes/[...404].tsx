@@ -1,3 +1,4 @@
+import { Link } from "@kobalte/core/link";
 import { Meta } from "@solidjs/meta";
 import PageTitle from "~/components/PageTitle";
 
@@ -16,9 +17,9 @@ export default function NotFound() {
 				The page you're looking for doesn't exist or has moved.
 			</p>
 			<p class="mt-6">
-				<a href="/" class="meta-link">
+				<Link href="/" class="meta-link">
 					← Back home
-				</a>
+				</Link>
 			</p>
 		</section>
 	);
