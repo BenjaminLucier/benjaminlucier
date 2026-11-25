@@ -157,6 +157,26 @@ export const work: Work[] = [
 		thumbnail: { scene: "compass" },
 	},
 	{
+		slug: "truenorthexplained",
+		title: "true north explained",
+		summary:
+			"A plain-language guide to how Canada works, legally and politically, with a short quiz at the end of every page.",
+		date: "2026-11-25",
+		href: "https://truenorthexplained.ca",
+		links: {
+			site: "https://truenorthexplained.ca",
+			repo: "https://github.com/BenjaminLucier/truenorthexplained",
+		},
+		thumbnail: {
+			scene: "glyph",
+			// A colour emoji, so the glyph's gradient doesn't apply.
+			options: {
+				text: "🇨🇦",
+				family: '"Apple Color Emoji", "Noto Color Emoji", sans-serif',
+			},
+		},
+	},
+	{
 		slug: "travel-nexus",
 		title: "travel nexus",
 		summary:
