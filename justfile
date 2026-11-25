@@ -27,4 +27,4 @@ deploy:
     pnpm thumbnails
     pnpm build
     pnpm check:meta
-    ctx pnpm deploy
+    ctx ops pnpm deploy
