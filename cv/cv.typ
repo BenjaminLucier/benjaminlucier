@@ -170,6 +170,14 @@
     [Typed SolidJS 2 components covering MapLibre GL JS's options, events, sources, layers, markers and controls.],
     [Published on #link("https://www.npmjs.com/package/maplibre-solidjs")[npm] with provenance, tested in Chromium against real MapLibre, with a #link("https://benjaminlucier.github.io/maplibre-solidjs/")[docs and examples site].],
   )
+  #entry(
+    "true north explained",
+    link("https://truenorthexplained.ca")[truenorthexplained.ca],
+    "Author & Maintainer",
+    "",
+    [Open-source, plain-language guide to how Canada works, legally and politically, with a short quiz on every page.],
+    [Static Astro site, with Sätteri (Rust) markdown plugins for facts, entity links and build-time Mermaid diagrams.],
+  )
 ]
 
 #section("Projects")[

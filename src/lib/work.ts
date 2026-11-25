@@ -157,6 +157,19 @@ export const work: Work[] = [
 		thumbnail: { scene: "compass" },
 	},
 	{
+		slug: "truenorthexplained",
+		title: "true north explained",
+		summary:
+			"A plain-language guide to how Canada works, legally and politically, with a short quiz at the end of every page.",
+		date: "2026-11-25",
+		href: "https://truenorthexplained.ca",
+		links: {
+			site: "https://truenorthexplained.ca",
+			repo: "https://github.com/BenjaminLucier/truenorthexplained",
+		},
+		thumbnail: { scene: "mapleLeaf" },
+	},
+	{
 		slug: "travel-nexus",
 		title: "travel nexus",
 		summary:

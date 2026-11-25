@@ -6,6 +6,7 @@ import {
 	drawEpicycleScene,
 	drawGenerativeScene,
 	drawGlyph,
+	drawMapleLeaf,
 	drawMapScene,
 } from "~/lib/generative-art";
 import { drawPathfindingScene } from "~/lib/pathfinding/scene";
@@ -57,4 +58,5 @@ export const scenes: { [Name in SceneName]: Scene<Name> } = {
 	map: still(drawMapScene),
 	epicycle: still((ctx, size) => drawEpicycleScene(ctx, size)),
 	compass: still((ctx, size) => drawCompassScene(ctx, size)),
+	mapleLeaf: still((ctx, size) => drawMapleLeaf(ctx, size)),
 };

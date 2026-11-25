@@ -394,6 +394,30 @@ export function drawGlyph(
 	ctx.fillText(text, size.width / 2, size.height / 2);
 }
 
+/** The flag of Canada's maple leaf, drawn from the base of its stem (bounds -1950..1770 by -4030..0). */
+const MAPLE_LEAF =
+	"M0 0l-45-863a95 95 0 0 1 111-98l859 151-116-320a65 65 0 0 1 20-73l941-762-212-99a65 65 0 0 1-34-79l186-572-542 115a65 65 0 0 1-73-38l-105-247-423 454a65 65 0 0 1-111-57l204-1052-327 189a65 65 0 0 1-91-27l-332-652-332 652a65 65 0 0 1-91 27l-327-189 204 1052a65 65 0 0 1-111 57l-423-454-105 247a65 65 0 0 1-73 38l-542-115 186 572a65 65 0 0 1-34 79l-212 99 941 762a65 65 0 0 1 20 73l-116 320 859-151a95 95 0 0 1 111 98l-45 863z";
+
+/** A maple leaf, centred and shaded from the palette's blue to its mauve like a glyph. */
+export function drawMapleLeaf(ctx: CanvasRenderingContext2D, size: SceneSize) {
+	const palette = palettes[currentMode()];
+	const scale = (size.height * 0.6) / 4030;
+
+	ctx.fillStyle = palette.background;
+	ctx.fillRect(0, 0, size.width, size.height);
+	ctx.save();
+	// Centre the leaf's bounding box in the frame; the gradient below is in leaf units.
+	ctx.translate(size.width / 2 + 90 * scale, size.height / 2 + 2015 * scale);
+	ctx.scale(scale, scale);
+	const gradient = ctx.createLinearGradient(-1950, 0, 1770, 0);
+	gradient.addColorStop(0, palette.nodes[0] as string);
+	gradient.addColorStop(1, palette.pulse);
+	ctx.fillStyle = gradient;
+	// Built here, not at module load: Path2D doesn't exist when the page renders on the server.
+	ctx.fill(new Path2D(MAPLE_LEAF));
+	ctx.restore();
+}
+
 export type MapSceneOptions = { seed?: number };
 
 /** Fractal value noise: a few octaves of `noise`, 0 to roughly 1. */
