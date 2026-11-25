@@ -16,6 +16,7 @@ export type SceneOptionsMap = {
 	map: MapSceneOptions;
 	epicycle: Record<string, never>;
 	compass: Record<string, never>;
+	mapleLeaf: Record<string, never>;
 };
 export type SceneName = keyof SceneOptionsMap;
 

@@ -167,14 +167,7 @@ export const work: Work[] = [
 			site: "https://truenorthexplained.ca",
 			repo: "https://github.com/BenjaminLucier/truenorthexplained",
 		},
-		thumbnail: {
-			scene: "glyph",
-			// A colour emoji, so the glyph's gradient doesn't apply.
-			options: {
-				text: "🇨🇦",
-				family: '"Apple Color Emoji", "Noto Color Emoji", sans-serif',
-			},
-		},
+		thumbnail: { scene: "mapleLeaf" },
 	},
 	{
 		slug: "travel-nexus",
