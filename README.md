@@ -45,6 +45,9 @@ means agentic functionality and machine learning in production.
 - [**maplibre-solidjs**](https://benjaminlucier.github.io/maplibre-solidjs/):
   SolidJS 2 components for MapLibre GL JS, typed and faithful to its API.
   `pnpm add maplibre-solidjs`
+- [**true north explained**](https://truenorthexplained.ca): a plain-language
+  guide to how Canada works, legally and politically, with a short quiz on
+  every page.
 
 ---
 
