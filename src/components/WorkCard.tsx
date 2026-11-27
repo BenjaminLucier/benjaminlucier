@@ -1,7 +1,7 @@
 import Globe from "@lucide/solid/icons/globe";
 import Package from "@lucide/solid/icons/package";
 import { siGithub, siNpm } from "simple-icons";
-import { For, Show } from "solid-js";
+import { For } from "solid-js";
 import Card from "~/components/Card";
 import type { Work, WorkLinks } from "~/lib/work";
 
@@ -66,17 +66,6 @@ export default function WorkCard(props: { work: Work }) {
 			href={props.work.href}
 			external={!props.work.href.startsWith("/")}
 			image={{ kind: "work", slug: props.work.slug }}
-			badge={
-				<Show when={props.work.alpha}>
-					<span
-						title="Alpha: early, still changing"
-						class="relative z-10 cursor-help font-sans text-xl font-semibold leading-none text-ctp-yellow"
-					>
-						<span aria-hidden="true">α</span>
-						<span class="sr-only">(alpha)</span>
-					</span>
-				</Show>
-			}
 			actions={
 				<For each={links()}>
 					{(l) => {

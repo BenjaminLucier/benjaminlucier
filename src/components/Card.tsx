@@ -23,8 +23,6 @@ export default function Card(props: {
 	image: { kind: ThumbnailKind; slug: string };
 	external?: boolean;
 	meta?: string | undefined;
-	/** Shown right after the title: e.g. a release-stage mark. */
-	badge?: JSX.Element;
 	/** Links of their own, at the end of the title row. */
 	actions?: JSX.Element;
 	title: string;
@@ -74,7 +72,6 @@ export default function Card(props: {
 						{props.title}
 					</a>
 				</h2>
-				{props.badge}
 				<Show when={props.actions}>
 					<div class="relative z-10 ml-auto flex items-center">
 						{props.actions}

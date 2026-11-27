@@ -25,12 +25,12 @@ means agentic functionality and machine learning in production.
   workspace.
 - [**pxstud.io**](https://pxstud.io): a pixel art and animation editor
   for the browser or desktop that works offline and is scriptable in Lua.
-- [**travel.nexus**](https://travel.nexus) (alpha): a map-first trip planner
+- [**travel.nexus**](https://travel.nexus): a map-first trip planner
   with shareable trips and places curated from the whole OpenStreetMap planet.
 
 ## Open Source
 
-- [**predict**](https://predict.rs) (alpha): a batteries-included machine
+- [**predict**](https://predict.rs): a batteries-included machine
   learning framework for Rust, with a consistent, scikit-learn-style API.
   `cargo add predict`
 - [**sophistry**](https://sophistry.dev): Manim-inspired, live maths
@@ -45,7 +45,7 @@ means agentic functionality and machine learning in production.
 - [**maplibre-solidjs**](https://benjaminlucier.github.io/maplibre-solidjs/):
   SolidJS 2 components for MapLibre GL JS, typed and faithful to its API.
   `pnpm add maplibre-solidjs`
-- [**true north explained**](https://truenorthexplained.ca): a plain-language
+- [**truenorthexplained.ca**](https://truenorthexplained.ca): a plain-language
   guide to how Canada works, legally and politically, with a short quiz on
   every page.
 

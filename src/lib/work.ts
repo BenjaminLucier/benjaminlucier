@@ -21,8 +21,6 @@ export interface Work {
 	href: string;
 	/** Shown as icon links in the card's corner, in this order; `href` stays the card's own link. */
 	links: WorkLinks;
-	/** Not finished yet: marked with an α next to the title. */
-	alpha?: boolean;
 	/** Also shown in the Featured section on the home page, in this order. */
 	featured?: boolean;
 	/** Card image; see src/lib/thumbnails.ts. */
@@ -64,7 +62,6 @@ export const work: Work[] = [
 			repo: "https://github.com/BenjaminLucier/predict",
 			crate: "https://crates.io/crates/predict",
 		},
-		alpha: true,
 		thumbnail: {
 			scene: "glyph",
 			// An italic maths serif, so the hat sits on the y (Mincho sets it beside it).
@@ -177,7 +174,6 @@ export const work: Work[] = [
 		date: "2026-10-01",
 		href: "https://travel.nexus",
 		links: { site: "https://travel.nexus" },
-		alpha: true,
 		thumbnail: { scene: "map" },
 	},
 	{

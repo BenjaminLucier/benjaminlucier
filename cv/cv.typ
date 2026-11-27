@@ -204,7 +204,7 @@
   #entry(
     link("https://travel.nexus")[travel.nexus],
     "",
-    "Founder & Lead Engineer — Public Alpha",
+    "Founder & Lead Engineer",
     "",
     [Map-first trip planner with shareable, forkable trips and place collections, per-place climate data and Stripe billing.],
     [Built a Rust data pipeline over \~1 TB of OpenStreetMap, Wikidata, Wikipedia and CHELSA climate data to curate places into PostGIS.],
